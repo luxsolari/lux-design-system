@@ -589,7 +589,7 @@ git commit -m "docs: add palette swatches and typography specimen"
                   font-size:0.65rem; text-transform:uppercase; letter-spacing:0.12em;">
         <span style="color:var(--muted-foreground); padding:2px 8px;">Neutral</span>
         <span style="background:var(--foreground); color:var(--background); padding:2px 8px;">Signal</span>
-        <span style="border:1px dashed rgba(128,128,128,0.5); padding:2px 8px;">Outlined</span>
+        <span style="border:1px dashed color-mix(in srgb, var(--foreground) 50%, transparent); padding:2px 8px;">Outlined</span>
       </div>
     </div>
 
@@ -602,7 +602,7 @@ git commit -m "docs: add palette swatches and typography specimen"
         <span style="display:inline-flex; align-items:center; gap:8px;">
           <span style="width:6px;height:6px;border-radius:9999px;background:var(--primary);"></span>Warning</span>
         <span style="display:inline-flex; align-items:center; gap:8px;">
-          <span style="width:6px;height:6px;border-radius:9999px;background:rgba(128,128,128,0.4);"></span>Disconnected</span>
+          <span style="width:6px;height:6px;border-radius:9999px;background:color-mix(in srgb, var(--foreground) 35%, transparent);"></span>Disconnected</span>
       </div>
     </div>
 ```
@@ -854,6 +854,10 @@ const fail = (msg) => { console.error("FAIL:", msg); process.exitCode = 1; };
 const hexes = [...html.matchAll(/#[0-9a-fA-F]{6}\b/g)].map((m) => m[0].toLowerCase());
 const rogue = [...new Set(hexes)].filter((h) => !PALETTE.has(h));
 if (rogue.length) fail("rogue hex color(s): " + rogue.join(", "));
+
+// 1b. No raw rgb()/rgba() or 3-digit hex — use a token or color-mix over a token.
+if (/\brgba?\(/i.test(html)) fail("raw rgb()/rgba() literal — use a token or color-mix(var(--token), transparent)");
+if (/#[0-9a-fA-F]{3}\b/.test(html)) fail("3-digit hex literal found — use a full token hex or var()");
 
 // 2. No shadows.
 if (/box-shadow|drop-shadow/i.test(html)) fail("shadow found (elevation must be a background step)");
