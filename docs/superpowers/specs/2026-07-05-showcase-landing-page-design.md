@@ -27,6 +27,10 @@ truth:
 4. **An in-repo asset gallery** — the section crops, reusable by README and any
    future site.
 
+Additionally, this effort **amends the design system to permit minimal,
+philosophically-aligned icons** (see the Iconography section below), demonstrated
+live on the landing page.
+
 ### Success criteria
 
 - A visitor to the GitHub repo sees the aesthetic within the first screen of the
@@ -66,6 +70,40 @@ type and borders survive GitHub's font sanitization. The user has also relaxed
 SVG/icon purity slightly to ease chart creation, provided charts stay strongly
 aligned with the philosophy (foreground / muted / primary only, no new colors).
 
+## Design-system amendment — Iconography (in scope)
+
+This effort also amends the design system itself to **permit icons**, which the
+current system implicitly discourages. Icons are allowed *only* within
+constraints that make them obey the same rules the rest of the system already
+enforces, so identity is preserved:
+
+- **Monoline, stroked — never filled.** Stroke width `1.5px` (echoing the 1px
+  border language). No solid or duotone glyphs.
+- **`currentColor` only.** Icons inherit `foreground` / `muted-foreground` like
+  text; `primary` (red) only for the destructive/accent cases the system already
+  reserves it for. Never multicolor.
+- **Square caps & miter joins**, geometric construction, minimal rounding —
+  matching "mostly square corners." (Feather/Lucide default to *round* caps; we
+  restyle them square. This is the biggest identity tell.)
+- **Small and sparing.** 16–20px, augmenting the uppercase-mono text labels,
+  never replacing them. The mono label stays the primary signifier.
+- **No icon fonts, no emoji.** Inline SVG only, so `currentColor` and stroke
+  width stay controllable. The emoji ban is unchanged.
+
+**Source approach — restyle an existing set.** The system documents how to adopt
+a restrained monoline set (Lucide / Feather-style) and override it to the rules
+above (square caps, `currentColor`, consistent stroke). It ships no bespoke icon
+set; the demo uses a few restyled Lucide-style icons (menu, close, arrow,
+external-link, sun/moon) as living examples.
+
+**Files changed by this amendment:**
+
+- `skills/lux-design-system/SKILL.md` — soften the implicit no-icon stance; add a
+  short **Iconography** subsection and update the "Do not" list (keep "no emoji").
+- `skills/lux-design-system/references/components.md` — add an **Iconography**
+  entry with the concrete restyling pattern and a compliant inline-SVG example.
+- `theme.css` is **not** touched — icons use existing `currentColor` semantics.
+
 ## The landing page — section design
 
 Top to bottom, all built with the design system's own tokens and patterns:
@@ -83,8 +121,11 @@ Top to bottom, all built with the design system's own tokens and patterns:
 5. **Typography specimen** — the heading scale, a body sample, and the
    uppercase-mono label pattern, shown live.
 6. **Component gallery** — buttons (3 variants + disabled), tags/pills (4 kinds),
-   status pips (4 states), an input, a card, and the middot toggle — each in its
-   own bordered cell with a mono caption.
+   status pips (4 states), an input, a card, the middot toggle, and an
+   **iconography** cell showing 4–6 restyled monoline icons — each in its own
+   bordered cell with a mono caption. Icons also appear tastefully in the nav
+   (menu/toggle) and footer (external-link) to demonstrate the new allowance in
+   context.
 7. **Charts** — 2–3 hand-rolled SVG charts (differential line with zero-crossing
    fill, share bars, timeline strip) on neutral sample data, proving the
    no-library chart approach.
@@ -132,14 +173,21 @@ idiomatic in-repo home. User flips Settings → Pages → source `/docs` after m
 ## Constraints & process (per AGENTS.md)
 
 - Land via a branch + pull request; **no direct pushes to `main`**.
-- Add a `## [Unreleased]` entry to `CHANGELOG.md` in the same PR.
+- Add a `## [Unreleased]` entry to `CHANGELOG.md` in the same PR. The iconography
+  amendment is user-facing new capability → a `feat` (minor bump under the repo's
+  semver discipline); the demo page/assets are `docs`.
 - Conventional Commit subject lines.
 
 ## Out of scope
 
 - Vercel deployment (host-agnostic file makes it a later option if wanted).
 - Custom domain.
-- Any change to the plugin skill content itself (`SKILL.md`, `theme.css`,
-  `components.md`) — this effort only *demonstrates* the existing system.
+- Changes to `theme.css` or the palette/typography rules — the iconography
+  amendment reuses existing `currentColor` semantics and adds no tokens.
+- A bespoke/shipped icon set — the system documents restyling rules only; the
+  demo carries the sample icons.
 - Automated CI regeneration of screenshots (manual re-run of the capture pass is
   sufficient for now).
+
+Note: unlike the original draft, edits to `SKILL.md` and `components.md` (the
+iconography amendment) are now **in scope**.
