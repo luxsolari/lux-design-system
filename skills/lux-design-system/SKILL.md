@@ -97,27 +97,54 @@ Dark mode is the `.dark` class on `<html>`. Toggle with
 
 ## Typography
 
-Two fonts, strictly separated by function — never mix them up.
+Two fonts form the core, strictly separated by function — and they already share
+DNA: **Space Grotesk is the proportional cousin of Space Mono** (it was drawn from
+it). The pairing is a *duotone of one skeleton*, mirroring the two-color rule.
+Never swap their roles.
 
 | Font | Use |
 |------|-----|
-| **Space Grotesk** (`font-sans`) | Body copy, UI labels, prose |
-| **Space Mono** (`font-mono`) | Headings, display, data values, tags, nav |
+| **Space Grotesk** (`font-sans`) | Body copy, UI text, prose |
+| **Space Mono** (`font-mono`) | Headings, display, data values, tags, nav, labels |
 
 ```html
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
 ```
+
+Space Grotesk loads as a **variable font** (continuous `300..700` axis); Space Mono
+loads its two weights plus **italics**.
+
+**Range comes from weight, not more typefaces.** Exactly as difference is expressed
+through weight/space/contrast rather than a new color, hierarchy is expressed
+through the weight axis rather than a new face. Space Grotesk weight scale:
+
+| Weight | Use |
+|--------|-----|
+| **300** Light | Large display sub-decks, lead paragraphs |
+| **400** Regular | Body copy |
+| **500** Medium | UI emphasis, active labels, small headings in prose |
+| **700** Bold | Strong emphasis — sparing; prefer 500 |
 
 **Heading scale** — Space Mono, weight 700: `h1` 3rem/−0.02em/1.1 ·
 `h2` 2.25rem/−0.02em/1.15 · `h3` 1.875rem/−0.01em/1.2 · `h4` 1.5rem/1.3 ·
 `h5` 1.25rem/1.3 · `h6` 1.125rem/1.3.
 
-**Body** — Space Grotesk, 1rem base, line-height 1.65, `kern`/`liga`/`calt` on,
-antialiased.
+**Body** — Space Grotesk 400, 1rem base, line-height 1.65, `kern`/`liga`/`calt`
+on, antialiased.
 
 **Label pattern** (pervasive — nav, metadata, section headers): Space Mono,
 `text-xs`, `uppercase`, `tracking-[0.2em]`, weight 400 inactive / 700 active,
 `text-muted-foreground` inactive → `text-foreground` active.
+
+**Tabular figures for data.** Numerals in a column, table, chart axis, or stat
+block get `font-variant-numeric: tabular-nums` (`font-feature-settings: "tnum" 1`)
+so digits share one width and align to the grid — the typographic equivalent of
+the system's hard borders. Prose numerals stay proportional (the default).
+
+**Space Mono italic** is reserved for one structural job: **inline annotations and
+figure captions** (e.g. a `<figcaption>` or a marginal note). It is never used for
+emphasis — emphasis is always weight. Treat it as a distinct voice for asides, not
+a highlighter.
 
 ## Spacing & layout
 
