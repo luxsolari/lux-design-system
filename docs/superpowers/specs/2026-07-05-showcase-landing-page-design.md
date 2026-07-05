@@ -45,6 +45,8 @@ design system itself**, both demonstrated live on the landing page:
   usable as a reference implementation.
 - Every raster asset is reproducible from `docs/index.html` via a scripted
   screenshot pass — a design tweak + re-run regenerates all assets.
+- A shared link to the demo renders a social preview card (OG/Twitter tags), and
+  the hero copy sells the system to a visitor who knows nothing about the author.
 - The change lands via a branch + PR with a `CHANGELOG.md` `[Unreleased]` entry,
   per `AGENTS.md`.
 
@@ -184,9 +186,13 @@ Top to bottom, all built with the design system's own tokens and patterns:
 1. **Top nav** — mono uppercase wordmark `LUX / DESIGN SYSTEM`, nav labels, and a
    working **light/dark toggle** using the middot toggle component (doubles as a
    live demo of that component).
-2. **Hero** — Space Mono H1 (`Duotone Swiss.`), a Space Grotesk sub-deck ("Two
-   colors. One accent. Everything else is weight, space, and contrast."), and two
-   buttons (filled + outlined variants). This crop becomes the social card.
+2. **Hero** — **pain-first copy that sells the system to a cold visitor who knows
+   nothing about the author.** Lead with the problem it solves, not the pedigree
+   (e.g. "Stop shipping Claude Code UIs that look like untouched shadcn. One
+   install, one opinionated aesthetic, every project."), Space Mono H1
+   (`Duotone Swiss.`), a Space Grotesk sub-deck, and two buttons (filled +
+   outlined). Author/credit lives in the footer, **not** here. This crop becomes
+   the social card.
 3. **The two rules** — side-by-side cards: "Duotone strict" / "Swiss-minimalist",
    each with a one-line manifesto.
 4. **Palette** — the light + dark token tables rendered as actual swatch chips
@@ -205,7 +211,8 @@ Top to bottom, all built with the design system's own tokens and patterns:
    (captioned as such) demonstrating the endorsed-library amendment. Plot loads
    via ESM CDN; the screenshot pass waits for it to render.
 8. **Footer** — install snippet (`/plugin install lux-design-system`), MIT
-   license, links.
+   license, repo/live-demo links, and the author credit (Lux Solari) — the "who
+   made this" that was deliberately kept out of the hero.
 
 ## Derived assets, file layout & capture workflow
 
@@ -220,7 +227,8 @@ docs/
     palette.png         # swatch grid
     components.png      # component gallery
     charts.png          # SVG charts section
-    social-card.png     # 1280x640 hero crop -> repo social preview
+    social-card.png     # 1200x630 hero crop -> OG image + repo social preview
+  PROMOTION.md          # launch/submission checklist (channels to reach people)
 README.md               # updated: embed images + "View the live demo ->" link
 ```
 
@@ -228,9 +236,9 @@ README.md               # updated: embed images + "View the live demo ->" link
 
 Render `docs/index.html` in headless Playwright at 2× device-pixel-ratio for
 crisp text. Screenshot each section in both light and dark by toggling the
-`.dark` class on `<html>`. Capture the social card at a fixed 1280×640 viewport
-against the hero. Reproducible — re-running after a design tweak regenerates
-every asset.
+`.dark` class on `<html>`. Capture the social card at a fixed **1200×630**
+viewport (the OG/Twitter standard) against the hero. Reproducible — re-running
+after a design tweak regenerates every asset.
 
 ### README integration
 
@@ -244,6 +252,58 @@ A hero image under the title, a light/dark pair, a components strip, and a
 **GitHub Pages**, served from `/docs`. The HTML is a single self-contained static
 file with no build step, so hosting is host-agnostic; Pages is chosen as the
 idiomatic in-repo home. User flips Settings → Pages → source `/docs` after merge.
+
+## Discoverability & distribution
+
+A cold visitor (designer, prospective dev) who knows nothing about the author
+almost never arrives at the README first — they arrive via a *shared link*. The
+build must produce assets that convert that link, independent of the author being
+present to explain it. (The marketing legwork itself — actually posting to
+channels — is the author's to do; this section covers only what the build ships.)
+
+### Open Graph / social meta tags (in `index.html`)
+
+Add to `<head>` so any paste of the Pages URL into Slack / Discord / X / Bluesky /
+iMessage renders a preview card:
+
+- `og:title`, `og:description`, `og:type=website`, `og:url`
+- `og:image` = the **absolute** URL of the social card
+  (`https://luxsolari.github.io/lux-design-system/docs/assets/social-card.png`)
+- `twitter:card=summary_large_image`, `twitter:title/description/image`
+- a plain `<meta name="description">` + a keyword-aware `<title>` (e.g. "Duotone
+  Swiss — a strict two-color design system for Claude Code") for SEO.
+
+The social card is therefore not an extra — it is the payload every share channel
+displays, so it is built early and retuned to the 1200×630 OG standard.
+
+### GitHub-native inbound (author applies; I draft)
+
+I cannot change repo metadata from this session, so the build produces a draft the
+author pastes into **Settings → General**:
+
+- **Topics:** `claude-code`, `claude-code-plugin`, `design-system`,
+  `swiss-design`, `duotone`, `tailwindcss`, `design-tokens` (final list drafted at
+  build time).
+- **Description:** one sharp line leading with the value proposition.
+- **Social preview:** upload `social-card.png` under Settings → Social preview.
+
+### `docs/PROMOTION.md` — launch checklist
+
+A checklist file so the author can work through distribution systematically,
+ordered by audience intent:
+
+- **Tier 1 (highest intent — Claude Code users):** community `awesome-claude-code`
+  lists & plugin marketplaces; Claude Developers Discord, r/ClaudeAI / r/ClaudeCode;
+  GitHub topics.
+- **Tier 2 (design/dev communities):** Bluesky/X thread led by the social card;
+  Show HN; r/web_design, r/Frontend, r/SideProject; Product Hunt (once the live
+  page is polished).
+- **Tier 3 (evergreen/SEO):** design-system aggregators (component.gallery,
+  designsystems.surf, Awesome Design Systems); dev.to / Hashnode cross-post with
+  `canonical_url` pointing at the future personal blog post so SEO credit transfers.
+
+The author's eventual blog posts become the hub linking these together; none of
+the above needs to wait for them.
 
 ## Constraints & process (per AGENTS.md)
 
