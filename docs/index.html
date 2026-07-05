@@ -113,6 +113,81 @@
           </div>
         </div>
       </section>
+      <section id="palette">
+        <div class="divider"><h3>Palette</h3><span class="rule"></span></div>
+        <p class="label" style="margin:-8px 0 20px;">Semantic tokens — never a raw hex in markup</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:16px;">
+          <figure style="margin:0; border:1px solid var(--border);">
+            <div style="height:72px; background:var(--background);"></div>
+            <figcaption style="border-top:1px solid var(--border); padding:8px 10px;">
+              <span class="label" style="display:block;">background</span>
+              <span style="font-family:'Space Mono',monospace; font-size:0.7rem; color:var(--muted-foreground);">page</span>
+            </figcaption>
+          </figure>
+          <figure style="margin:0; border:1px solid var(--border);">
+            <div style="height:72px; background:var(--card);"></div>
+            <figcaption style="border-top:1px solid var(--border); padding:8px 10px;">
+              <span class="label" style="display:block;">card</span>
+              <span style="font-family:'Space Mono',monospace; font-size:0.7rem; color:var(--muted-foreground);">surface</span>
+            </figcaption>
+          </figure>
+          <figure style="margin:0; border:1px solid var(--border);">
+            <div style="height:72px; background:var(--foreground);"></div>
+            <figcaption style="border-top:1px solid var(--border); padding:8px 10px;">
+              <span class="label" style="display:block;">foreground</span>
+              <span style="font-family:'Space Mono',monospace; font-size:0.7rem; color:var(--muted-foreground);">ink/text</span>
+            </figcaption>
+          </figure>
+          <figure style="margin:0; border:1px solid var(--border);">
+            <div style="height:72px; background:var(--muted);"></div>
+            <figcaption style="border-top:1px solid var(--border); padding:8px 10px;">
+              <span class="label" style="display:block;">muted</span>
+              <span style="font-family:'Space Mono',monospace; font-size:0.7rem; color:var(--muted-foreground);">subtle</span>
+            </figcaption>
+          </figure>
+          <figure style="margin:0; border:1px solid var(--border);">
+            <div style="height:72px; background:var(--muted-foreground);"></div>
+            <figcaption style="border-top:1px solid var(--border); padding:8px 10px;">
+              <span class="label" style="display:block;">muted-foreground</span>
+              <span style="font-family:'Space Mono',monospace; font-size:0.7rem; color:var(--muted-foreground);">metadata</span>
+            </figcaption>
+          </figure>
+          <figure style="margin:0; border:1px solid var(--border);">
+            <div style="height:72px; background:var(--primary);"></div>
+            <figcaption style="border-top:1px solid var(--border); padding:8px 10px;">
+              <span class="label" style="display:block;">primary</span>
+              <span style="font-family:'Space Mono',monospace; font-size:0.7rem; color:var(--muted-foreground);">accent</span>
+            </figcaption>
+          </figure>
+          <figure style="margin:0; border:1px solid var(--border);">
+            <div style="height:72px; background:var(--border);"></div>
+            <figcaption style="border-top:1px solid var(--border); padding:8px 10px;">
+              <span class="label" style="display:block;">border</span>
+              <span style="font-family:'Space Mono',monospace; font-size:0.7rem; color:var(--muted-foreground);">borders</span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+      <section id="typography">
+        <div class="divider"><h3>Typography</h3><span class="rule"></span></div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;">
+          <div>
+            <p class="label" style="margin-bottom:16px;">Space Mono — headings &amp; data</p>
+            <p style="font-family:'Space Mono',monospace; font-weight:700; font-size:3rem; margin:0; letter-spacing:-0.02em;">Aa</p>
+            <h1 style="margin:16px 0 0;">Heading one</h1>
+            <h2 style="margin:8px 0 0;">Heading two</h2>
+            <h3 style="margin:8px 0 0;">Heading three</h3>
+          </div>
+          <div>
+            <p class="label" style="margin-bottom:16px;">Space Grotesk — body</p>
+            <p style="margin:0;">The whole point is restraint: every element earns its place
+              or is removed. Difference is expressed through typography, spacing, and
+              contrast — never by adding a color. Borders are visible, shadows are absent,
+              and whitespace does the heavy lifting.</p>
+            <p class="label" style="margin-top:24px;">Uppercase mono label · tracking 0.2em</p>
+          </div>
+        </div>
+      </section>
       <div id="social-card" aria-hidden="true" style="position:absolute; left:-9999px; top:0;
            width:1200px; height:630px; background:var(--background); color:var(--foreground);
            padding:80px; display:flex; flex-direction:column; justify-content:space-between;
