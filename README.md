@@ -1,5 +1,8 @@
 # Lux Design System
 
+[![Version](https://img.shields.io/github/v/release/luxsolari/lux-design-system)](https://github.com/luxsolari/lux-design-system/releases)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 A Claude Code plugin that teaches Claude **Duotone Swiss** — Lux Solari's house
 design language — so every project you build shares one consistent, opinionated
 aesthetic.
