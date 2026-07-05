@@ -3,6 +3,14 @@
 [![Version](https://img.shields.io/github/v/release/luxsolari/lux-design-system)](https://github.com/luxsolari/lux-design-system/releases)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
+<p align="center">
+  <a href="https://luxsolari.github.io/lux-design-system/">
+    <img src="docs/assets/hero-light.png" alt="Duotone Swiss — strict two-color design system" width="900" />
+  </a>
+</p>
+
+<p align="center"><strong><a href="https://luxsolari.github.io/lux-design-system/">View the live demo →</a></strong></p>
+
 A Claude Code plugin that teaches Claude **Duotone Swiss** — Lux Solari's house
 design language — so every project you build shares one consistent, opinionated
 aesthetic.
@@ -20,6 +28,20 @@ by adding a color.**
 - **Space Mono** for headings, data, tags, and nav; **Space Grotesk** for body.
 - Uppercase monospace labels with wide letter-spacing.
 - Hand-rolled SVG charts — no chart libraries.
+
+## See it
+
+Light and dark are the same two-color system inverted — difference by contrast,
+never by a new hue:
+
+| Light | Dark |
+|-------|------|
+| ![Light mode hero](docs/assets/hero-light.png) | ![Dark mode hero](docs/assets/hero-dark.png) |
+
+The component library, palette, and hand-rolled + Observable Plot charts:
+
+![Component gallery](docs/assets/components.png)
+![Charts](docs/assets/charts.png)
 
 ## What it does
 

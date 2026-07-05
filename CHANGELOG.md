@@ -10,6 +10,9 @@ All notable changes to this plugin are documented here. Format follows
 - **Iconography** guidance — Lucide endorsed as the sole icon set, with the
   monoline / `currentColor` / square-cap restyle rules (`SKILL.md`,
   `references/components.md`).
+- **Showcase landing page** (`docs/index.html`) served on GitHub Pages, plus
+  README screenshots, a 1200×630 social-preview card, and a reproducible Playwright
+  capture script.
 
 ### Changed
 - **Charts** rule relaxed — hand-rolled SVG stays the default, but Observable Plot
