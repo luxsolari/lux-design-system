@@ -3,6 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <script>
+    // Apply the saved/preferred theme before first paint to avoid a flash of
+    // the wrong mode. The toggle buttons are wired by the script at end of body.
+    (function () {
+      try {
+        var saved = localStorage.getItem("theme");
+        var dark = saved ? saved === "dark"
+          : window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (dark) document.documentElement.classList.add("dark");
+      } catch (e) {}
+    })();
+  </script>
+
   <title>Duotone Swiss — a strict two-color design system for Claude Code</title>
   <meta name="description" content="Two colors, one accent, no shadows. A strict Swiss-minimalist design system that gives every Claude Code project one consistent, opinionated aesthetic." />
 
