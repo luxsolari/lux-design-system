@@ -1,0 +1,20 @@
+#!/bin/sh
+# Blocks direct pushes to the repo's protected (default) branch.
+# Tags and other branches are unaffected — only a push whose remote ref IS
+# the protected branch is rejected; land changes via PR/merge instead.
+set -eu
+
+protected_branch=$(git config --get whiting.defaultbranch || true)
+protected_branch=${protected_branch:-main}
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+    case "$remote_ref" in
+        "refs/heads/$protected_branch")
+            echo "pre-push: rejected — direct pushes to '$protected_branch' aren't allowed." >&2
+            echo "pre-push: push a branch and open a PR instead." >&2
+            exit 1
+            ;;
+    esac
+done
+
+exit 0

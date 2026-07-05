@@ -1,0 +1,21 @@
+#!/bin/sh
+# Rejects commit messages that don't follow Conventional Commits.
+set -eu
+
+commit_msg_file="$1"
+subject=$(head -n 1 "$commit_msg_file")
+
+case "$subject" in
+    Merge\ *) exit 0 ;;
+esac
+
+pattern='^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\([^)]+\))?!?: .+'
+
+if ! printf '%s' "$subject" | grep -qE "$pattern"; then
+    echo "commit-msg: rejected — subject line must follow Conventional Commits:" >&2
+    echo "  type(scope)?: description" >&2
+    echo "  allowed types: feat fix docs style refactor perf test build ci chore revert" >&2
+    echo "  example: feat(api): add pagination to /users endpoint" >&2
+    echo "got: $subject" >&2
+    exit 1
+fi
