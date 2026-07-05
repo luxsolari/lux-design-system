@@ -160,19 +160,55 @@ tracking-[0.12em]`.
 
 `rounded-full` is reserved for dot indicators only — never on containers or pills.
 
+## Iconography
+
+Icons are permitted but strictly constrained so they obey the same rules as the
+rest of the system. **Lucide is the single sanctioned icon set** — mirroring the
+two-font rule, no other icon library, no icon fonts, no emoji.
+
+Restyle Lucide's three off-identity defaults; keep everything else:
+
+| Attribute | Lucide default | Duotone Swiss |
+|-----------|---------------|---------------|
+| `stroke-width` | `2` | `1.5` |
+| `stroke-linecap` | `round` | `square` |
+| `stroke-linejoin` | `round` | `miter` |
+
+Apply via one CSS rule (CSS overrides SVG presentation attributes, so the raw
+Lucide markup needs no editing):
+
+```css
+.icon { width: 20px; height: 20px; fill: none; stroke: currentColor;
+  stroke-width: 1.5; stroke-linecap: square; stroke-linejoin: miter; }
+```
+
+Icons are 16–20px, `currentColor` (inherit `foreground`/`muted-foreground`;
+`primary` only for the destructive/accent cases already reserved for it), and
+**augment** the uppercase-mono labels — never replace them.
+
 ## Charts
 
-All graphs are hand-rolled SVG — **no chart library** (Recharts/chart.js/victory
-carry aesthetic opinions that fight the palette). Colors are foreground / muted /
-primary only. `width="100%"`, fixed height, `viewBox` driven by the data range. See
-[`references/components.md`](references/components.md) for the chart catalogue,
-status pips, modal overlay, and toggle controls.
+Hand-rolled SVG is the default — the simple charts (timeline strip, share bars,
+single differential line) are ~20 lines of raw SVG. Colors are foreground / muted
+/ primary only; `width="100%"`, fixed height, `viewBox` from the data range.
+
+When scales / axes / many-series / interaction genuinely warrant a library, the
+**single sanctioned choice is [Observable Plot](https://observablehq.com/plot)**
+(framework-agnostic SVG — no other chart library, no canvas libs). Restyle it to
+the palette: set mark `fill`/`stroke` to `--foreground`/`--muted-foreground`/
+`--primary` explicitly (never Plot's default color scheme), disable the color
+legend, keep bars square, use explicit muted grid marks, and restyle axes to the
+mono label pattern. Encode categories/emphasis with solid-vs-dashed strokes,
+fill-opacity, and outline rings — never a new color. See
+[`references/components.md`](references/components.md) for the full pattern.
 
 ## Do not
 
 - **No success green / info blue / second accent.** Weight, size, or layout instead.
 - **No shadows.** Depth is border presence + background steps.
-- **No chart libraries.** SVG only.
+- **No chart libraries except restyled Observable Plot.** Hand-rolled SVG is the
+  default; reach for Plot only when complexity earns it, restyled to the palette.
 - **No `rounded-full` on containers.** Dots only.
 - **No raw hex in markup.** Always the semantic token.
-- **No emoji** in UI text unless explicitly requested.
+- **Icons: restyled Lucide only.** Monoline, `currentColor`, square caps. No icon
+  fonts. **No emoji** in UI text unless explicitly requested.

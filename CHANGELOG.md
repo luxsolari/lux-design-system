@@ -6,6 +6,16 @@ All notable changes to this plugin are documented here. Format follows
 
 ## [Unreleased]
 
+### Added
+- **Iconography** guidance — Lucide endorsed as the sole icon set, with the
+  monoline / `currentColor` / square-cap restyle rules (`SKILL.md`,
+  `references/components.md`).
+
+### Changed
+- **Charts** rule relaxed — hand-rolled SVG stays the default, but Observable Plot
+  is now the one sanctioned chart library when a lib is warranted, restyled to the
+  palette (`SKILL.md`, `references/components.md`).
+
 ## [1.0.0] — 2026-07-04
 
 ### Added
