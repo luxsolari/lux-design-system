@@ -75,6 +75,57 @@
     </nav>
     <main>
       <!-- sections appended in Tasks 3–7 -->
+      <section id="hero" style="border-top:none;">
+        <p class="label">Claude Code plugin · Duotone Swiss</p>
+        <h1 style="margin:20px 0 0; max-width:16ch;">Stop shipping UIs that look untouched.</h1>
+        <p style="font-size:1.15rem; max-width:52ch; margin:24px 0 0; color:var(--foreground);">
+          One install gives every Claude Code project the same opinionated aesthetic:
+          two colors, one accent, hard borders, no shadows. Everything else is weight,
+          space, and contrast.
+        </p>
+        <div style="display:flex; gap:16px; margin-top:32px; font-family:'Space Mono',monospace;
+                    text-transform:uppercase; letter-spacing:0.2em; font-size:0.75rem;">
+          <a href="#components" style="border:1px solid var(--foreground); background:var(--foreground);
+             color:var(--background); padding:12px 20px; text-decoration:none;">See the components</a>
+          <a href="https://github.com/luxsolari/lux-design-system"
+             style="border:1px solid var(--foreground); padding:12px 20px; text-decoration:none;
+             display:inline-flex; align-items:center; gap:8px;">
+            View on GitHub
+            <svg class="icon" viewBox="0 0 24 24" width="16" height="16"><!-- lucide arrow-up-right -->
+              <path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </section>
+      <section id="rules">
+        <div class="divider"><h3>Two rules govern everything</h3><span class="rule"></span></div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+          <div style="border:1px solid var(--border); background:var(--card); padding:24px;">
+            <p class="label">01 — Duotone strict</p>
+            <p style="margin:12px 0 0;">Ink and cream are the two functional colors; blood
+              red is the lone accent. No success green, no info blue. Win/loss, active,
+              emphasis, error — all weight, size, spacing, contrast.</p>
+          </div>
+          <div style="border:1px solid var(--border); background:var(--card); padding:24px;">
+            <p class="label">02 — Swiss-minimalist</p>
+            <p style="margin:12px 0 0;">Visible 1px borders, no shadows — elevation is a
+              background step. Generous whitespace, square corners, uppercase monospace
+              labels with wide letter-spacing.</p>
+          </div>
+        </div>
+      </section>
+      <div id="social-card" aria-hidden="true" style="position:absolute; left:-9999px; top:0;
+           width:1200px; height:630px; background:var(--background); color:var(--foreground);
+           padding:80px; display:flex; flex-direction:column; justify-content:space-between;
+           border:1px solid var(--border);">
+        <p class="label">Claude Code plugin</p>
+        <div>
+          <h1 style="font-size:4.5rem; line-height:1.05; margin:0;">Duotone Swiss.</h1>
+          <p style="font-family:'Space Mono',monospace; font-size:1.25rem; margin:20px 0 0;
+             color:var(--muted-foreground);">Two colors. One accent. No shadows.</p>
+        </div>
+        <p style="font-family:'Space Mono',monospace; font-size:1rem; letter-spacing:0.1em;
+           margin:0;">/plugin install lux-design-system</p>
+      </div>
     </main>
   </div>
   <script>
