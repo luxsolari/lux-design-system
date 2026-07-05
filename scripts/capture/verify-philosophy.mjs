@@ -41,7 +41,7 @@ for (const needle of ['property="og:image"', 'property="og:title"', 'name="twitt
 if (!/property="og:image"\s+content="https:\/\/luxsolari\.github\.io\/lux-design-system\/assets\/social-card\.png"/.test(html))
   fail("og:image is not the absolute Pages asset URL");
 
-// 6. Author named only in the footer region (once).
-if ((html.match(/Lux Solari/g) || []).length !== 1) fail("author should be named exactly once");
+// 6. Author is credited somewhere (hero and/or footer name the house).
+if ((html.match(/Lux Solari/g) || []).length < 1) fail("author should be credited at least once");
 
 if (!process.exitCode) console.log("PASS: philosophy compliance OK");
