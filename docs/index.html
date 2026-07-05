@@ -348,6 +348,10 @@
   <script type="module">
     import * as Plot from "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm";
     const data = [0,1,3,2,4,6,5,7,6,8].map((v,i) => ({ t:i, v, u: Math.max(0, v-2) }));
+    // Render only after fonts load so Plot measures axis-label metrics with the real
+    // font — otherwise a fallback-font measurement shifts the layout (non-deterministic
+    // pixels, plus a visible reflow on the live page).
+    await document.fonts.ready;
     const chart = Plot.plot({
       width: 900, height: 220, marginLeft: 28, marginBottom: 24,
       style: { background:"transparent", color:"var(--foreground)",
