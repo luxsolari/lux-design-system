@@ -26,23 +26,15 @@ typography, spacing, and contrast — never by adding a color.**
 
 Whenever you build or restyle UI, reach for these tokens and patterns by default
 instead of inventing ad-hoc colors or leaning on a component library's stock look.
-Three setup moves come first on any new project:
+Two setup moves come first on any new project:
 
-1. **Ask which font variant to use.** Before applying the system, ask the user:
-   **MAIN (Space)** or **ALT (Geist)**? Both share the Space Grotesk body + Zilla
-   Slab serif spine and differ only in the mono signature and the utility voice
-   (MAIN = Space Mono + Inter; ALT = Geist Mono + Geist Sans — see
-   [Optional registers & variants](#optional-registers--variants-governed)).
-   **Default to MAIN** if they have no preference. Apply ALT by adding the `.alt`
-   class to `<html>` (it composes with `.dark`, exactly like the theme).
-2. **Install the theme.** Copy [`assets/theme.css`](assets/theme.css) into the
+1. **Install the theme.** Copy [`assets/theme.css`](assets/theme.css) into the
    project's global stylesheet (e.g. `app/globals.css`). It defines every CSS
-   variable for light + dark mode and both font variants, and wires them to
-   Tailwind 4 via `@theme inline`. For non-Tailwind stacks the same
-   `:root` / `.dark` / `.alt` variables work as plain CSS custom properties.
-3. **Load the fonts.** Add the Google Fonts link (below) or the framework
-   equivalent (`next/font`, etc.) — the chosen variant's families, or all six if
-   the project should offer a live toggle.
+   variable for light + dark mode, and wires them to Tailwind 4 via
+   `@theme inline`. For non-Tailwind stacks the same `:root` / `.dark` variables
+   work as plain CSS custom properties.
+2. **Load the fonts.** Add the Google Fonts link (below) or the framework
+   equivalent (`next/font`, etc.).
 
 Then compose UI from the patterns in this file. For the full component library
 (status pips, modals, toggles, SVG charts) see
@@ -154,7 +146,7 @@ figure captions** (e.g. a `<figcaption>` or a marginal note). It is never used f
 emphasis — emphasis is always weight. Treat it as a distinct voice for asides, not
 a highlighter.
 
-### Optional registers & variants (governed)
+### Optional registers (governed)
 
 The mono + sans core is canonical. Two **sanctioned optional registers** extend it
 for projects that need them — governed as strictly as Lucide and Observable Plot,
@@ -169,32 +161,25 @@ Zilla Slab is a slab serif *derived from a monospace* (Fira Mono) — echoing ho
 Space Grotesk was drawn from Space Mono. Inter is the neo-grotesque neutral
 (Helvetica / Univers lineage).
 
-**Two variants.** The stack ships in two flavors that share a body + serif spine
-and swap only the mono signature and the utility voice. Drive every font through
-four role variables; a `.alt` class swaps the variant exactly like `.dark` swaps
-the theme:
+Drive every font through four role variables:
 
-| Role | MAIN (Space) | ALT (Geist) |
-|------|--------------|-------------|
-| Display / mono (`--font-mono`) | Space Mono | Geist Mono |
-| Body / sans (`--font-sans`) | Space Grotesk | Space Grotesk |
-| Serif / long-form (`--font-serif`) | Zilla Slab | Zilla Slab |
-| Utility / data (`--font-util`) | Inter | Geist Sans |
+| Role | Font |
+|------|------|
+| Display / mono (`--font-mono`) | Space Mono |
+| Body / sans (`--font-sans`) | Space Grotesk |
+| Serif / long-form (`--font-serif`) | Zilla Slab |
+| Utility / data (`--font-util`) | Inter |
 
 ```css
 :root { --font-mono:'Space Mono',ui-monospace,monospace; --font-sans:'Space Grotesk',system-ui,sans-serif;
         --font-serif:'Zilla Slab',Georgia,serif; --font-util:'Inter',system-ui,sans-serif; }
-.alt  { --font-mono:'Geist Mono',ui-monospace,monospace; --font-util:'Geist',system-ui,sans-serif; }
 ```
-
-Load all six families (MAIN + ALT) when offering the variants:
 
 ```html
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Zilla+Slab:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@400..700&family=Geist:wght@400..700&family=Geist+Mono:wght@400..700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Zilla+Slab:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@400..700&display=swap" rel="stylesheet" />
 ```
 
-MAIN is the default and canonical; ALT is a sanctioned alternative. Never mix a
-register outside its role, and never run a third variant.
+Never mix a register outside its role.
 
 ## Spacing & layout
 

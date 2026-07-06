@@ -16,13 +16,8 @@ All notable changes to this plugin are documented here. Format follows
 - **`docs/PROMOTION.md`** — launch checklist and drafted repo topics/description.
 - **Type-system depth** — Space Grotesk variable weight axis (300–700), tabular
   figures for data, and a reserved Space Mono italic for annotations/captions.
-- **Optional type registers** — Zilla Slab (serif, long-form/pull-quotes) and a
-  utility sans (Inter / Geist Sans, data/fine-print), governed with strict roles.
-- **Two font variants** (MAIN = Space, ALT = Geist) sharing a Space Grotesk + Zilla
-  Slab spine, driven by `--mono`/`--sans`/`--serif`/`--util` role vars plus a `.alt`
-  class; `assets/theme.css` ships both, and the demo has a live Space·Geist toggle.
-- **Variant prompt** — the skill now asks which variant (MAIN/ALT) to apply on a
-  new project, defaulting to MAIN (`SKILL.md`).
+- **Optional type registers** — Zilla Slab (serif, long-form/pull-quotes) and Inter
+  (utility sans, data/fine-print), governed with strict roles.
 
 ### Changed
 - **Charts** rule relaxed — hand-rolled SVG stays the default, but Observable Plot

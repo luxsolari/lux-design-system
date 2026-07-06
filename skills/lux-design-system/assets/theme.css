@@ -23,18 +23,11 @@
   --ring: #8b2e2e;
   --radius: 0.5rem;
 
-  /* Font roles — MAIN variant (Space). Body + serif are the shared spine;
-     the ALT (Geist) variant below overrides only --mono and --util. */
+  /* Font roles. */
   --mono: "Space Mono", ui-monospace, monospace;
   --sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --serif: "Zilla Slab", Georgia, serif;
   --util: "Inter", ui-sans-serif, system-ui, sans-serif;
-}
-
-/* ALT variant (Geist) — add class="alt" on <html>; composes with .dark. */
-.alt {
-  --mono: "Geist Mono", ui-monospace, monospace;
-  --util: "Geist", ui-sans-serif, system-ui, sans-serif;
 }
 
 .dark {
@@ -54,7 +47,7 @@
 }
 
 @theme inline {
-  /* Reference the role vars so font utilities swap live with the .alt variant. */
+  /* Reference the role vars so Tailwind's font utilities stay in sync. */
   --font-sans: var(--sans);
   --font-mono: var(--mono);
   --font-serif: var(--serif);
