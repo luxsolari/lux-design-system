@@ -26,15 +26,23 @@ typography, spacing, and contrast — never by adding a color.**
 
 Whenever you build or restyle UI, reach for these tokens and patterns by default
 instead of inventing ad-hoc colors or leaning on a component library's stock look.
-Two setup moves come first on any new project:
+Three setup moves come first on any new project:
 
-1. **Install the theme.** Copy [`assets/theme.css`](assets/theme.css) into the
+1. **Ask which font variant to use.** Before applying the system, ask the user:
+   **MAIN (Space)** or **ALT (Geist)**? Both share the Space Grotesk body + Zilla
+   Slab serif spine and differ only in the mono signature and the utility voice
+   (MAIN = Space Mono + Inter; ALT = Geist Mono + Geist Sans — see
+   [Optional registers & variants](#optional-registers--variants-governed)).
+   **Default to MAIN** if they have no preference. Apply ALT by adding the `.alt`
+   class to `<html>` (it composes with `.dark`, exactly like the theme).
+2. **Install the theme.** Copy [`assets/theme.css`](assets/theme.css) into the
    project's global stylesheet (e.g. `app/globals.css`). It defines every CSS
-   variable for light + dark mode and wires them to Tailwind 4 via `@theme inline`.
-   For non-Tailwind stacks the same `:root` / `.dark` variables work as plain CSS
-   custom properties.
-2. **Load the fonts.** Add the Google Fonts link (below) or the framework
-   equivalent (`next/font`, etc.).
+   variable for light + dark mode and both font variants, and wires them to
+   Tailwind 4 via `@theme inline`. For non-Tailwind stacks the same
+   `:root` / `.dark` / `.alt` variables work as plain CSS custom properties.
+3. **Load the fonts.** Add the Google Fonts link (below) or the framework
+   equivalent (`next/font`, etc.) — the chosen variant's families, or all six if
+   the project should offer a live toggle.
 
 Then compose UI from the patterns in this file. For the full component library
 (status pips, modals, toggles, SVG charts) see
