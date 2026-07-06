@@ -26,15 +26,23 @@ typography, spacing, and contrast — never by adding a color.**
 
 Whenever you build or restyle UI, reach for these tokens and patterns by default
 instead of inventing ad-hoc colors or leaning on a component library's stock look.
-Two setup moves come first on any new project:
+Three setup moves come first on any new project:
 
-1. **Install the theme.** Copy [`assets/theme.css`](assets/theme.css) into the
+1. **Ask which font variant to use.** Before applying the system, ask the user:
+   **MAIN (Space)** or **ALT (Geist)**? Both share the Space Grotesk body + Zilla
+   Slab serif spine and differ only in the mono signature and the utility voice
+   (MAIN = Space Mono + Inter; ALT = Geist Mono + Geist Sans — see
+   [Optional registers & variants](#optional-registers--variants-governed)).
+   **Default to MAIN** if they have no preference. Apply ALT by adding the `.alt`
+   class to `<html>` (it composes with `.dark`, exactly like the theme).
+2. **Install the theme.** Copy [`assets/theme.css`](assets/theme.css) into the
    project's global stylesheet (e.g. `app/globals.css`). It defines every CSS
-   variable for light + dark mode and wires them to Tailwind 4 via `@theme inline`.
-   For non-Tailwind stacks the same `:root` / `.dark` variables work as plain CSS
-   custom properties.
-2. **Load the fonts.** Add the Google Fonts link (below) or the framework
-   equivalent (`next/font`, etc.).
+   variable for light + dark mode and both font variants, and wires them to
+   Tailwind 4 via `@theme inline`. For non-Tailwind stacks the same
+   `:root` / `.dark` / `.alt` variables work as plain CSS custom properties.
+3. **Load the fonts.** Add the Google Fonts link (below) or the framework
+   equivalent (`next/font`, etc.) — the chosen variant's families, or all six if
+   the project should offer a live toggle.
 
 Then compose UI from the patterns in this file. For the full component library
 (status pips, modals, toggles, SVG charts) see
@@ -97,27 +105,96 @@ Dark mode is the `.dark` class on `<html>`. Toggle with
 
 ## Typography
 
-Two fonts, strictly separated by function — never mix them up.
+Two fonts form the core, strictly separated by function — and they already share
+DNA: **Space Grotesk is the proportional cousin of Space Mono** (it was drawn from
+it). The pairing is a *duotone of one skeleton*, mirroring the two-color rule.
+Never swap their roles.
 
 | Font | Use |
 |------|-----|
-| **Space Grotesk** (`font-sans`) | Body copy, UI labels, prose |
-| **Space Mono** (`font-mono`) | Headings, display, data values, tags, nav |
+| **Space Grotesk** (`font-sans`) | Body copy, UI text, prose |
+| **Space Mono** (`font-mono`) | Headings, display, data values, tags, nav, labels |
 
 ```html
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
 ```
+
+Space Grotesk loads as a **variable font** (continuous `300..700` axis); Space Mono
+loads its two weights plus **italics**.
+
+**Range comes from weight, not more typefaces.** Exactly as difference is expressed
+through weight/space/contrast rather than a new color, hierarchy is expressed
+through the weight axis rather than a new face. Space Grotesk weight scale:
+
+| Weight | Use |
+|--------|-----|
+| **300** Light | Large display sub-decks, lead paragraphs |
+| **400** Regular | Body copy |
+| **500** Medium | UI emphasis, active labels, small headings in prose |
+| **700** Bold | Strong emphasis — sparing; prefer 500 |
 
 **Heading scale** — Space Mono, weight 700: `h1` 3rem/−0.02em/1.1 ·
 `h2` 2.25rem/−0.02em/1.15 · `h3` 1.875rem/−0.01em/1.2 · `h4` 1.5rem/1.3 ·
 `h5` 1.25rem/1.3 · `h6` 1.125rem/1.3.
 
-**Body** — Space Grotesk, 1rem base, line-height 1.65, `kern`/`liga`/`calt` on,
-antialiased.
+**Body** — Space Grotesk 400, 1rem base, line-height 1.65, `kern`/`liga`/`calt`
+on, antialiased.
 
 **Label pattern** (pervasive — nav, metadata, section headers): Space Mono,
 `text-xs`, `uppercase`, `tracking-[0.2em]`, weight 400 inactive / 700 active,
 `text-muted-foreground` inactive → `text-foreground` active.
+
+**Tabular figures for data.** Numerals in a column, table, chart axis, or stat
+block get `font-variant-numeric: tabular-nums` (`font-feature-settings: "tnum" 1`)
+so digits share one width and align to the grid — the typographic equivalent of
+the system's hard borders. Prose numerals stay proportional (the default).
+
+**Space Mono italic** is reserved for one structural job: **inline annotations and
+figure captions** (e.g. a `<figcaption>` or a marginal note). It is never used for
+emphasis — emphasis is always weight. Treat it as a distinct voice for asides, not
+a highlighter.
+
+### Optional registers & variants (governed)
+
+The mono + sans core is canonical. Two **sanctioned optional registers** extend it
+for projects that need them — governed as strictly as Lucide and Observable Plot,
+each with exactly one role:
+
+| Register | Font (MAIN) | Role — nothing else |
+|----------|-------------|---------------------|
+| Serif | **Zilla Slab** | Long-form editorial body and pull-quotes. Never UI. |
+| Utility | **Inter** | Dense data, tables, captions, fine print. Never the primary voice. |
+
+Zilla Slab is a slab serif *derived from a monospace* (Fira Mono) — echoing how
+Space Grotesk was drawn from Space Mono. Inter is the neo-grotesque neutral
+(Helvetica / Univers lineage).
+
+**Two variants.** The stack ships in two flavors that share a body + serif spine
+and swap only the mono signature and the utility voice. Drive every font through
+four role variables; a `.alt` class swaps the variant exactly like `.dark` swaps
+the theme:
+
+| Role | MAIN (Space) | ALT (Geist) |
+|------|--------------|-------------|
+| Display / mono (`--font-mono`) | Space Mono | Geist Mono |
+| Body / sans (`--font-sans`) | Space Grotesk | Space Grotesk |
+| Serif / long-form (`--font-serif`) | Zilla Slab | Zilla Slab |
+| Utility / data (`--font-util`) | Inter | Geist Sans |
+
+```css
+:root { --font-mono:'Space Mono',ui-monospace,monospace; --font-sans:'Space Grotesk',system-ui,sans-serif;
+        --font-serif:'Zilla Slab',Georgia,serif; --font-util:'Inter',system-ui,sans-serif; }
+.alt  { --font-mono:'Geist Mono',ui-monospace,monospace; --font-util:'Geist',system-ui,sans-serif; }
+```
+
+Load all six families (MAIN + ALT) when offering the variants:
+
+```html
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Zilla+Slab:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@400..700&family=Geist:wght@400..700&family=Geist+Mono:wght@400..700&display=swap" rel="stylesheet" />
+```
+
+MAIN is the default and canonical; ALT is a sanctioned alternative. Never mix a
+register outside its role, and never run a third variant.
 
 ## Spacing & layout
 
@@ -160,19 +237,55 @@ tracking-[0.12em]`.
 
 `rounded-full` is reserved for dot indicators only — never on containers or pills.
 
+## Iconography
+
+Icons are permitted but strictly constrained so they obey the same rules as the
+rest of the system. **Lucide is the single sanctioned icon set** — mirroring the
+two-font rule, no other icon library, no icon fonts, no emoji.
+
+Restyle Lucide's three off-identity defaults; keep everything else:
+
+| Attribute | Lucide default | Duotone Swiss |
+|-----------|---------------|---------------|
+| `stroke-width` | `2` | `1.5` |
+| `stroke-linecap` | `round` | `square` |
+| `stroke-linejoin` | `round` | `miter` |
+
+Apply via one CSS rule (CSS overrides SVG presentation attributes, so the raw
+Lucide markup needs no editing):
+
+```css
+.icon { width: 20px; height: 20px; fill: none; stroke: currentColor;
+  stroke-width: 1.5; stroke-linecap: square; stroke-linejoin: miter; }
+```
+
+Icons are 16–20px, `currentColor` (inherit `foreground`/`muted-foreground`;
+`primary` only for the destructive/accent cases already reserved for it), and
+**augment** the uppercase-mono labels — never replace them.
+
 ## Charts
 
-All graphs are hand-rolled SVG — **no chart library** (Recharts/chart.js/victory
-carry aesthetic opinions that fight the palette). Colors are foreground / muted /
-primary only. `width="100%"`, fixed height, `viewBox` driven by the data range. See
-[`references/components.md`](references/components.md) for the chart catalogue,
-status pips, modal overlay, and toggle controls.
+Hand-rolled SVG is the default — the simple charts (timeline strip, share bars,
+single differential line) are ~20 lines of raw SVG. Colors are foreground / muted
+/ primary only; `width="100%"`, fixed height, `viewBox` from the data range.
+
+When scales / axes / many-series / interaction genuinely warrant a library, the
+**single sanctioned choice is [Observable Plot](https://observablehq.com/plot)**
+(framework-agnostic SVG — no other chart library, no canvas libs). Restyle it to
+the palette: set mark `fill`/`stroke` to `--foreground`/`--muted-foreground`/
+`--primary` explicitly (never Plot's default color scheme), disable the color
+legend, keep bars square, use explicit muted grid marks, and restyle axes to the
+mono label pattern. Encode categories/emphasis with solid-vs-dashed strokes,
+fill-opacity, and outline rings — never a new color. See
+[`references/components.md`](references/components.md) for the full pattern.
 
 ## Do not
 
 - **No success green / info blue / second accent.** Weight, size, or layout instead.
 - **No shadows.** Depth is border presence + background steps.
-- **No chart libraries.** SVG only.
+- **No chart libraries except restyled Observable Plot.** Hand-rolled SVG is the
+  default; reach for Plot only when complexity earns it, restyled to the palette.
 - **No `rounded-full` on containers.** Dots only.
 - **No raw hex in markup.** Always the semantic token.
-- **No emoji** in UI text unless explicitly requested.
+- **Icons: restyled Lucide only.** Monoline, `currentColor`, square caps. No icon
+  fonts. **No emoji** in UI text unless explicitly requested.

@@ -3,6 +3,14 @@
 [![Version](https://img.shields.io/github/v/release/luxsolari/lux-design-system)](https://github.com/luxsolari/lux-design-system/releases)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
+<p align="center">
+  <a href="https://luxsolari.github.io/lux-design-system/">
+    <img src="docs/assets/hero-light.png" alt="Duotone Swiss — strict two-color design system" width="900" />
+  </a>
+</p>
+
+<p align="center"><strong><a href="https://luxsolari.github.io/lux-design-system/">View the live demo →</a></strong></p>
+
 A Claude Code plugin that teaches Claude **Duotone Swiss** — Lux Solari's house
 design language — so every project you build shares one consistent, opinionated
 aesthetic.
@@ -20,6 +28,29 @@ by adding a color.**
 - **Space Mono** for headings, data, tags, and nav; **Space Grotesk** for body.
 - Uppercase monospace labels with wide letter-spacing.
 - Hand-rolled SVG charts — no chart libraries.
+
+## See it
+
+Light and dark are the same two-color system inverted — difference by contrast,
+never by a new hue:
+
+| Light | Dark |
+|-------|------|
+| ![Light mode hero](docs/assets/hero-light.png) | ![Dark mode hero](docs/assets/hero-dark.png) |
+
+Two font variants share a Space Grotesk body + Zilla Slab serif spine and swap only
+the mono signature and the utility voice — **MAIN** (Space Mono + Inter) and
+**ALT** (Geist Mono + Geist Sans). The plugin asks which to apply, defaulting to
+MAIN:
+
+| MAIN — Space | ALT — Geist |
+|--------------|-------------|
+| ![MAIN variant — Space Mono and Inter](docs/assets/variants-main.png) | ![ALT variant — Geist Mono and Geist Sans](docs/assets/variants-alt.png) |
+
+The component library, palette, and hand-rolled + Observable Plot charts:
+
+![Component gallery](docs/assets/components.png)
+![Charts](docs/assets/charts.png)
 
 ## What it does
 

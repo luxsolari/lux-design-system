@@ -6,6 +6,29 @@ All notable changes to this plugin are documented here. Format follows
 
 ## [Unreleased]
 
+### Added
+- **Iconography** guidance — Lucide endorsed as the sole icon set, with the
+  monoline / `currentColor` / square-cap restyle rules (`SKILL.md`,
+  `references/components.md`).
+- **Showcase landing page** (`docs/index.html`) served on GitHub Pages, plus
+  README screenshots, a 1200×630 social-preview card, and a reproducible Playwright
+  capture script.
+- **`docs/PROMOTION.md`** — launch checklist and drafted repo topics/description.
+- **Type-system depth** — Space Grotesk variable weight axis (300–700), tabular
+  figures for data, and a reserved Space Mono italic for annotations/captions.
+- **Optional type registers** — Zilla Slab (serif, long-form/pull-quotes) and a
+  utility sans (Inter / Geist Sans, data/fine-print), governed with strict roles.
+- **Two font variants** (MAIN = Space, ALT = Geist) sharing a Space Grotesk + Zilla
+  Slab spine, driven by `--mono`/`--sans`/`--serif`/`--util` role vars plus a `.alt`
+  class; `assets/theme.css` ships both, and the demo has a live Space·Geist toggle.
+- **Variant prompt** — the skill now asks which variant (MAIN/ALT) to apply on a
+  new project, defaulting to MAIN (`SKILL.md`).
+
+### Changed
+- **Charts** rule relaxed — hand-rolled SVG stays the default, but Observable Plot
+  is now the one sanctioned chart library when a lib is warranted, restyled to the
+  palette (`SKILL.md`, `references/components.md`).
+
 ## [1.0.0] — 2026-07-04
 
 ### Added

@@ -1,0 +1,7 @@
+{
+  "name": "lux-capture",
+  "private": true,
+  "type": "module",
+  "scripts": { "capture": "node capture.mjs", "verify": "node verify-philosophy.mjs" },
+  "devDependencies": { "playwright": "^1.48.0" }
+}

@@ -73,6 +73,55 @@ Reference chart types from the original system:
 The through-line: encode categories and emphasis with fill opacity, stroke style
 (solid vs dashed), and outline rings — never by introducing a new color.
 
+### Observable Plot (the one sanctioned library)
+
+Default to hand-rolled SVG. When a library is warranted, use Observable Plot and
+restyle it — never its defaults:
+
+```js
+import * as Plot from "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm";
+
+const chart = Plot.plot({
+  width: 640, height: 240,
+  style: { background: "transparent", color: "var(--foreground)",
+           fontFamily: "'Space Mono', monospace", fontSize: "11px" },
+  x: { label: null }, y: { label: null },
+  marks: [
+    Plot.gridY({ stroke: "var(--muted-foreground)", strokeOpacity: 0.15 }),
+    Plot.ruleY([0], { stroke: "var(--muted-foreground)", strokeOpacity: 0.4 }),
+    Plot.lineY(data, { x: "t", y: "v", stroke: "var(--foreground)", strokeWidth: 1.5 }),
+    Plot.lineY(data, { x: "t", y: "u", stroke: "var(--muted-foreground)",
+                       strokeWidth: 1.5, strokeDasharray: "4 3" }),
+  ],
+});
+document.querySelector("#mount").append(chart);
+```
+
+Rules: explicit palette colors per mark (no default scheme), no color legend,
+square bars, muted grid, solid-vs-dashed for series, outline ring (not hue) for a
+highlighted slice.
+
+## Iconography (Lucide, restyled)
+
+Lucide is the only sanctioned icon set. Drop in the raw Lucide inline SVG and add
+`class="icon"`; the CSS restyle below overrides Lucide's round-cap / 2px defaults
+(CSS beats SVG presentation attributes, so the paths are untouched).
+
+```css
+.icon { width: 20px; height: 20px; fill: none; stroke: currentColor;
+  stroke-width: 1.5; stroke-linecap: square; stroke-linejoin: miter; }
+```
+
+```html
+<span class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em]">
+  <svg class="icon" viewBox="0 0 24 24"><!-- lucide 'arrow-right' paths --></svg>
+  Read more
+</span>
+```
+
+Sizing 16–20px. Never let an icon replace the mono text label — it augments it.
+For React use `lucide-react` and pass the same stroke props (or the `.icon` class).
+
 ## Cards
 
 Elevation is a background step, never a shadow.
