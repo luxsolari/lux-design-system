@@ -16,8 +16,8 @@ All notable changes to this plugin are documented here. Format follows
 - **`docs/PROMOTION.md`** — launch checklist and drafted repo topics/description.
 - **Type-system depth** — Space Grotesk variable weight axis (300–700), tabular
   figures for data, and a reserved Space Mono italic for annotations/captions.
-- **Optional type registers** — Zilla Slab (serif, long-form/pull-quotes) and Inter
-  (utility sans, data/fine-print), governed with strict roles.
+- **Optional type register** — Zilla Slab (serif, long-form/pull-quotes),
+  governed with a strict role.
 
 ### Changed
 - **Charts** rule relaxed — hand-rolled SVG stays the default, but Observable Plot

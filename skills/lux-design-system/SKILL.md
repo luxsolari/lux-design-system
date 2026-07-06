@@ -104,7 +104,7 @@ Never swap their roles.
 
 | Font | Use |
 |------|-----|
-| **Space Grotesk** (`font-sans`) | Body copy, UI text, prose |
+| **Space Grotesk** (`font-sans`) | Body copy, UI text, prose, and dense-data/utility text (tables, fine print) at smaller size with tabular figures |
 | **Space Mono** (`font-mono`) | Headings, display, data values, tags, nav, labels |
 
 ```html
@@ -148,35 +148,32 @@ a highlighter.
 
 ### Optional registers (governed)
 
-The mono + sans core is canonical. Two **sanctioned optional registers** extend it
-for projects that need them — governed as strictly as Lucide and Observable Plot,
-each with exactly one role:
+The mono + sans core is canonical. One **sanctioned optional register** extends it
+for projects that need it — governed as strictly as Lucide and Observable Plot,
+with exactly one role:
 
 | Register | Font (MAIN) | Role — nothing else |
 |----------|-------------|---------------------|
 | Serif | **Zilla Slab** | Long-form editorial body and pull-quotes. Never UI. |
-| Utility | **Inter** | Dense data, tables, captions, fine print. Never the primary voice. |
 
 Zilla Slab is a slab serif *derived from a monospace* (Fira Mono) — echoing how
-Space Grotesk was drawn from Space Mono. Inter is the neo-grotesque neutral
-(Helvetica / Univers lineage).
+Space Grotesk was drawn from Space Mono.
 
-Drive every font through four role variables:
+Drive every font through three role variables:
 
 | Role | Font |
 |------|------|
 | Display / mono (`--font-mono`) | Space Mono |
 | Body / sans (`--font-sans`) | Space Grotesk |
 | Serif / long-form (`--font-serif`) | Zilla Slab |
-| Utility / data (`--font-util`) | Inter |
 
 ```css
 :root { --font-mono:'Space Mono',ui-monospace,monospace; --font-sans:'Space Grotesk',system-ui,sans-serif;
-        --font-serif:'Zilla Slab',Georgia,serif; --font-util:'Inter',system-ui,sans-serif; }
+        --font-serif:'Zilla Slab',Georgia,serif; }
 ```
 
 ```html
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Zilla+Slab:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@400..700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Zilla+Slab:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
 ```
 
 Never mix a register outside its role.

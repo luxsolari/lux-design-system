@@ -34,7 +34,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Zilla+Slab:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@400..700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Zilla+Slab:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -43,7 +43,7 @@
       --muted:#ebe5d5; --muted-foreground:#4a4a48; --border:#0a0a0a; --input:#faf6ec; --ring:#8b2e2e;
       /* Role fonts */
       --font-mono:'Space Mono',ui-monospace,monospace; --font-sans:'Space Grotesk',system-ui,sans-serif;
-      --font-serif:'Zilla Slab',Georgia,serif; --font-util:'Inter',system-ui,sans-serif;
+      --font-serif:'Zilla Slab',Georgia,serif;
     }
     .dark {
       --background:#0a0a0a; --foreground:#f5efe0; --card:#161616; --card-foreground:#f5efe0;
@@ -237,8 +237,8 @@
         </div>
       </section>
       <section id="registers">
-        <div class="divider"><h3>Four type registers</h3><span class="rule"></span></div>
-        <p class="label" style="margin:-8px 0 24px;">Core duotone + two sanctioned registers</p>
+        <div class="divider"><h3>Three type registers</h3><span class="rule"></span></div>
+        <p class="label" style="margin:-8px 0 24px;">Core duotone + one sanctioned register</p>
         <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:32px;">
           <div>
             <p class="label" style="margin-bottom:12px;">Display / mono</p>
@@ -247,21 +247,13 @@
           </div>
           <div>
             <p class="label" style="margin-bottom:12px;">Body / sans</p>
-            <p style="font-family:var(--font-sans); font-size:1.05rem; margin:0;">The primary reading and UI voice.</p>
+            <p style="font-family:var(--font-sans); font-size:1.05rem; margin:0;">The primary reading, UI, and dense-data voice.</p>
             <p class="label" style="margin-top:10px;">Space Grotesk</p>
           </div>
           <div>
             <p class="label" style="margin-bottom:12px;">Serif / long-form</p>
             <p style="font-family:var(--font-serif); font-size:1.15rem; line-height:1.5; margin:0;">For editorial body and pull-quotes — the comfortable reading register.</p>
             <p class="label" style="margin-top:10px;">Zilla Slab</p>
-          </div>
-          <div>
-            <p class="label" style="margin-bottom:12px;">Utility / data</p>
-            <div style="font-family:var(--font-util); font-variant-numeric:tabular-nums; font-size:0.95rem;">
-              <div style="display:flex; justify-content:space-between; border-top:1px solid var(--border); padding-top:6px;"><span>Sessions</span><span>1,209,384</span></div>
-              <div style="display:flex; justify-content:space-between; padding-top:4px;"><span>Rate</span><span>1.4931%</span></div>
-            </div>
-            <p class="label" style="margin-top:10px;">Inter</p>
           </div>
         </div>
         <blockquote style="font-family:var(--font-serif); font-style:italic; font-size:1.5rem; line-height:1.45; border-left:2px solid var(--border); margin:40px 0 0; padding:2px 0 2px 24px; max-width:62ch;">
