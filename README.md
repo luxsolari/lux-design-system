@@ -38,15 +38,6 @@ never by a new hue:
 |-------|------|
 | ![Light mode hero](docs/assets/hero-light.png) | ![Dark mode hero](docs/assets/hero-dark.png) |
 
-Two font variants share a Space Grotesk body + Zilla Slab serif spine and swap only
-the mono signature and the utility voice — **MAIN** (Space Mono + Inter) and
-**ALT** (Geist Mono + Geist Sans). The plugin asks which to apply, defaulting to
-MAIN:
-
-| MAIN — Space | ALT — Geist |
-|--------------|-------------|
-| ![MAIN variant — Space Mono and Inter](docs/assets/variants-main.png) | ![ALT variant — Geist Mono and Geist Sans](docs/assets/variants-alt.png) |
-
 The component library, palette, and hand-rolled + Observable Plot charts:
 
 ![Component gallery](docs/assets/components.png)
