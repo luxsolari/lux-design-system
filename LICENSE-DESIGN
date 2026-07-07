@@ -1,0 +1,42 @@
+Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+
+Copyright (c) 2026 Lux Solari (Luciano Laje)
+
+Scope: this license applies only to the design-system content in this
+repository — `skills/lux-swiss/`, `docs/index.html`, `docs/assets/`, and
+`HOUSE-MARK.md`. Everything else in this repository (build/tooling
+scripts, CI configuration, git hooks, and project documentation such as
+this README, CONTRIBUTING, and CHANGELOG) is licensed under the
+MIT/X11 License instead; see `LICENSE`.
+
+This work is licensed under a Creative Commons Attribution-ShareAlike
+4.0 International License. To view a copy of this license, visit
+https://creativecommons.org/licenses/by-sa/4.0/ or send a letter to
+Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+
+In summary, under this license you are free to:
+
+  - Share — copy and redistribute the material in any medium or format
+  - Adapt — remix, transform, and build upon the material for any
+    purpose, even commercially
+
+Under the following terms:
+
+  - Attribution — You must give appropriate credit to Lux Solari, provide
+    a link to this license, and indicate if changes were made. You must
+    do so in any reasonable manner, but not in any way that suggests Lux
+    Solari endorses you or your use.
+  - ShareAlike — If you remix, transform, or build upon the material, you
+    must distribute your contributions under the same license as the
+    original.
+  - No additional restrictions — You may not apply legal terms or
+    technological measures that legally restrict others from doing
+    anything the license permits.
+
+No warranties are given. The license may not give you all of the
+permissions necessary for your intended use; for example, other rights
+such as publicity, privacy, or moral rights may limit how you use the
+material.
+
+This summary is not a substitute for the license. The full legal code is
+available at: https://creativecommons.org/licenses/by-sa/4.0/legalcode

@@ -45,6 +45,13 @@ All notable changes to this plugin are documented here. Format follows
 - **Charts** rule relaxed — hand-rolled SVG stays the default, but Observable Plot
   is now the one sanctioned chart library when a lib is warranted, restyled to the
   palette (`SKILL.md`, `references/components.md`).
+- **BREAKING CHANGE: dual-licensed the repo.** The design system itself
+  (`skills/lux-swiss/`, `docs/index.html`, `docs/assets/`,
+  `HOUSE-MARK.md`) is now licensed under CC BY-SA 4.0 instead of
+  MIT/X11 — still free to use and adapt, including commercially, but now
+  requiring attribution and that derivatives stay open under the same
+  terms. Anyone relying on the previous MIT/X11 terms for this content
+  should review `LICENSE-DESIGN`. Tooling and scripts remain MIT/X11.
 
 ## [1.0.0] — 2026-07-04
 

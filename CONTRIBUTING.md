@@ -27,5 +27,11 @@ version.
    following [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) + SemVer.
 5. Submit a PR with a clear description.
 
+## License
+This repo is dual-licensed (see [README.md](README.md#license)):
+contributions to `skills/lux-swiss/`, `docs/index.html`, `docs/assets/`,
+or `HOUSE-MARK.md` are accepted under CC BY-SA 4.0; contributions to
+`scripts/` or other tooling are accepted under MIT/X11.
+
 ## Code of conduct
 Be kind. Be constructive.

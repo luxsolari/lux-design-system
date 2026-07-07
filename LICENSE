@@ -1,4 +1,9 @@
-MIT License
+MIT/X11 License
+
+This license covers everything in this repository except the
+design-system content covered separately by `LICENSE-DESIGN` —
+namely `skills/lux-swiss/`, `docs/index.html`, `docs/assets/`, and
+`HOUSE-MARK.md`, which are licensed under CC BY-SA 4.0 instead.
 
 Copyright (c) 2026 Lux Solari (Luciano Laje)
 
