@@ -38,7 +38,7 @@ for (const needle of ['property="og:image"', 'property="og:title"', 'name="twitt
 // the og:image meta tag's content attribute specifically — a whole-file
 // substring search would also match the twitter:image tag and miss a
 // regression that broke only og:image.
-if (!/property="og:image"\s+content="https:\/\/luxsolari\.github\.io\/lux-design-system\/assets\/social-card\.png"/.test(html))
+if (!/property="og:image"\s+content="https:\/\/luxsolari\.github\.io\/lux-swiss\/assets\/social-card\.png"/.test(html))
   fail("og:image is not the absolute Pages asset URL");
 
 // 6. Author is credited somewhere (hero and/or footer name the house).
