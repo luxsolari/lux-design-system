@@ -23,6 +23,12 @@ borders, generous whitespace, monospace labels. The whole point is restraint: ev
 element earns its place or is removed, and **difference is expressed through
 typography, spacing, and contrast — never by adding a color.**
 
+Lux Swiss is one of Lux Solari's two house-mark design systems — the
+personal brand identity carried into every project built with them. Its
+sibling, [Tri-Swiss](https://github.com/luxsolari/tri-swiss), applies the
+same governance philosophy through a tri-tone palette with a governed
+Pastel Turquoise highlight; see `HOUSE-MARK.md` for how the two relate.
+
 ## When you apply this
 
 Whenever you build or restyle UI, reach for these tokens and patterns by default

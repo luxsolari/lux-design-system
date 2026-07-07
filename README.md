@@ -15,6 +15,12 @@ A Claude Code plugin that teaches Claude **Lux Swiss** (formerly Duotone
 Swiss) — Lux Solari's house design language — so every project you build
 shares one consistent, opinionated aesthetic.
 
+Lux Swiss and its sibling, [Tri-Swiss](https://github.com/luxsolari/tri-swiss),
+are the two house-mark design systems that carry Lux Solari's personal
+brand identity into every project built with them — related governance,
+distinct palettes. See [HOUSE-MARK.md](HOUSE-MARK.md) for how the two
+relate.
+
 ## The aesthetic
 
 **Duotone strict, Swiss-minimalist.** Two functional colors — ink (`#0a0a0a`) and
