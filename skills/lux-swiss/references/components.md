@@ -101,6 +101,68 @@ Rules: explicit palette colors per mark (no default scheme), no color legend,
 square bars, muted grid, solid-vs-dashed for series, outline ring (not hue) for a
 highlighted slice.
 
+## Structural Block — sidebar, hero band, bold word, brand moment
+
+A third job for Blood Red, on top of primary/destructive/ring. Three
+forms — pick one block form per layout; the bold-word form is independent
+and may combine with either.
+
+**Sidebar / nav rail.** Full-height solid Blood Red panel, capped at ~25%
+of viewport width (min 220px, max 280px), sticky/fixed. Holds wordmark,
+in-page anchor nav, theme toggle, external link, copyright:
+
+```html
+<aside class="sidebar" style="width:22%; min-width:220px; max-width:280px;
+  background:var(--primary); color:var(--primary-foreground);
+  position:sticky; top:0; height:100vh; display:flex; flex-direction:column;
+  justify-content:space-between; padding:32px 28px; box-sizing:border-box;">
+  <div>
+    <span style="font-family:var(--font-mono); font-weight:700; font-size:1.5rem;">Wordmark</span>
+    <nav style="margin-top:40px; display:flex; flex-direction:column; gap:16px;
+      font-family:var(--font-mono); font-size:0.8rem; text-transform:uppercase; letter-spacing:0.15em;">
+      <a href="#section-one" style="color:var(--primary-foreground); text-decoration:none; opacity:0.75;">Section One</a>
+    </nav>
+  </div>
+  <div style="font-family:var(--font-mono); font-size:0.7rem; text-transform:uppercase;
+    letter-spacing:0.12em; opacity:0.75;">© Year Author</div>
+</aside>
+```
+
+**Hero band.** Solid Blood Red horizontal block, used once — an
+alternative to the sidebar, never combined with it:
+
+```html
+<div style="background:var(--primary); color:var(--primary-foreground); padding:64px 48px;">
+  <h1 style="margin:0;">Hero title.</h1>
+</div>
+```
+
+**Bold word/phrase accent.** One word inside a heading or paragraph in
+Blood Red, at normal weight/size — independent of the two block forms,
+may combine with either:
+
+```html
+<p>Two colors, one strong <span style="color:var(--primary);">accent</span>.</p>
+```
+
+**Two-color segment stripe.** Two equal solid blocks — ink, Blood Red —
+used as a static decorative bar (e.g. beneath a hero title):
+
+```html
+<div style="display:flex; gap:4px; width:64px;">
+  <div style="height:3px; flex:1; background:var(--foreground);"></div>
+  <div style="height:3px; flex:1; background:var(--primary);"></div>
+</div>
+```
+
+**Brand-moment device.** Exactly one element per page — the hero wordmark
+— rendered at the heaviest real weight (700, same as every other heading)
+combined with a deliberate size jump well beyond the normal type scale:
+
+```html
+<h1 style="font-size:4.5rem;">Page Title.</h1>
+```
+
 ## Iconography (Lucide, restyled)
 
 Lucide is the only sanctioned icon set. Drop in the raw Lucide inline SVG and add
