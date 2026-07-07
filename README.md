@@ -1,24 +1,33 @@
-# Lux Design System
+# Lux Swiss
 
-[![Version](https://img.shields.io/github/v/release/luxsolari/lux-design-system)](https://github.com/luxsolari/lux-design-system/releases)
+[![Version](https://img.shields.io/github/v/release/luxsolari/lux-swiss)](https://github.com/luxsolari/lux-swiss/releases)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 <p align="center">
-  <a href="https://luxsolari.github.io/lux-design-system/">
-    <img src="docs/assets/hero-light.png" alt="Duotone Swiss — strict two-color design system" width="900" />
+  <a href="https://luxsolari.github.io/lux-swiss/">
+    <img src="docs/assets/hero-light.png" alt="Lux Swiss — strict two-color design system" width="900" />
   </a>
 </p>
 
-<p align="center"><strong><a href="https://luxsolari.github.io/lux-design-system/">View the live demo →</a></strong></p>
+<p align="center"><strong><a href="https://luxsolari.github.io/lux-swiss/">View the live demo →</a></strong></p>
 
-A Claude Code plugin that teaches Claude **Duotone Swiss** — Lux Solari's house
-design language — so every project you build shares one consistent, opinionated
-aesthetic.
+A Claude Code plugin that teaches Claude **Lux Swiss** (formerly Duotone
+Swiss) — Lux Solari's house design language — so every project you build
+shares one consistent, opinionated aesthetic.
+
+Lux Swiss and its sibling, [Tri-Swiss](https://github.com/luxsolari/tri-swiss),
+are the two house-mark design systems that carry Lux Solari's personal
+brand identity into every project built with them — related governance,
+distinct palettes. See [HOUSE-MARK.md](HOUSE-MARK.md) for how the two
+relate.
 
 ## The aesthetic
 
 **Duotone strict, Swiss-minimalist.** Two functional colors — ink (`#0a0a0a`) and
-warm cream (`#f5efe0`) — plus a single blood-red accent (`#8b2e2e`). No success
+warm cream (`#f5efe0`) — plus a single blood-red accent (`#8b2e2e`) that now also
+marks a genuine Structural Block (a solid-color sidebar/hero band, capped at ~25%
+of viewport, or a bold word inside a heading) and one governed brand-moment
+element per page (larger and bolder than any other heading). No success
 green, no info blue, no second accent. Win/loss, active/inactive, emphasis, and
 error are all expressed through **typography weight, spacing, and contrast — never
 by adding a color.**
@@ -45,11 +54,11 @@ The component library, palette, and hand-rolled + Observable Plot charts:
 
 ## What it does
 
-Once installed, the `lux-design-system` skill activates automatically whenever
+Once installed, the `lux-swiss` skill activates automatically whenever
 Claude builds or restyles UI — components, pages, forms, dashboards, Tailwind/CSS
 themes — and applies these tokens and patterns by default, even if you don't name
 the design system. You can also invoke it explicitly ("apply my design system",
-"make this duotone swiss").
+"make this lux swiss", "make this duotone swiss").
 
 The skill bundles:
 
@@ -64,7 +73,7 @@ Add the marketplace, then install:
 
 ```
 /plugin marketplace add luxsolari/lux-solari-plugins
-/plugin install lux-design-system
+/plugin install lux-swiss
 ```
 
 ## Applying it to a project

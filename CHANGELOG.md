@@ -18,8 +18,30 @@ All notable changes to this plugin are documented here. Format follows
   figures for data, and a reserved Space Mono italic for annotations/captions.
 - **Optional type register** — Zilla Slab (serif, long-form/pull-quotes),
   governed with a strict role.
+- **Structural Block pattern** for Blood Red — a solid-color sidebar/nav
+  rail or hero band (capped at ~25% of viewport, pick one per layout),
+  plus an independent bold word/phrase accent that may combine with
+  either (`SKILL.md`, `references/components.md`).
+- **Brand-moment device** — a governed, typographic-only equivalent of
+  Tri-Swiss's turquoise "one brand moment" job: exactly one element per
+  page (the hero wordmark) rendered at the heaviest available weight (700)
+  combined with a deliberate size jump, since neither Space Grotesk nor
+  Space Mono ships past weight 700 (`SKILL.md`, `references/components.md`).
+- **Two-color segment stripe** (ink, Blood Red) — a static decorative bar
+  pattern, demonstrated beneath the showcase page's hero title
+  (`references/components.md`, `docs/index.html`).
+- **Showcase page restructure** — `docs/index.html` now uses a persistent
+  sidebar nav (wordmark, anchor nav, theme toggle, GitHub link,
+  copyright), collapsing to a red top band with a hamburger toggle below
+  the mobile breakpoint.
 
 ### Changed
+- **BREAKING CHANGE: renamed Duotone Swiss to Lux Swiss.** The plugin slug
+  changes from `lux-design-system` to `lux-swiss`; the GitHub repo, the
+  skill directory, and every install command follow. Anyone who has
+  already run `/plugin install lux-design-system@lux-solari-plugins` needs
+  to reinstall as `/plugin install lux-swiss@lux-solari-plugins`.
+  "Duotone" survives as a descriptive tagline, not the name.
 - **Charts** rule relaxed — hand-rolled SVG stays the default, but Observable Plot
   is now the one sanctioned chart library when a lib is warranted, restyled to the
   palette (`SKILL.md`, `references/components.md`).

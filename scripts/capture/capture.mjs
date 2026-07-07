@@ -18,6 +18,14 @@ async function shoot({ dsr, viewport }, jobs) {
   for (const j of jobs) {
     await page.evaluate((d) => document.documentElement.classList.toggle("dark", d), !!j.dark);
     await page.waitForTimeout(200);
+    if (j.fullViewport) {
+      // Sidebar + content together, not scoped to one section — the sidebar is a
+      // sibling of every #section, so an element-scoped shot never shows it. A plain
+      // page.screenshot() with no clip/fullPage captures exactly the loaded viewport.
+      await page.screenshot({ path: path.join(outDir, j.file) });
+      console.log("wrote", j.file);
+      continue;
+    }
     const el = await page.$(j.id);
     // #social-card is intentionally rendered off-canvas (left:-9999px) so it never
     // shows in the live page. Playwright's elementHandle.screenshot() cannot clip a
@@ -59,8 +67,8 @@ async function shoot({ dsr, viewport }, jobs) {
 
 // Section shots — crisp 2x.
 await shoot({ dsr: 2, viewport: { width: 1180, height: 1000 } }, [
-  { id: "#hero", file: "hero-light.png", dark: false },
-  { id: "#hero", file: "hero-dark.png", dark: true },
+  { fullViewport: true, file: "hero-light.png", dark: false },
+  { fullViewport: true, file: "hero-dark.png", dark: true },
   { id: "#palette", file: "palette.png", dark: false },
   { id: "#components", file: "components.png", dark: false },
   { id: "#charts", file: "charts.png", dark: false },
