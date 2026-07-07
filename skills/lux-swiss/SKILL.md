@@ -63,6 +63,13 @@ either. This is not a second color — it is a new layout job for the one
 accent this system already has. Outside that one block, ink and cream
 continue to dominate every other surface exactly as before.
 
+The two-color segment stripe isn't limited to one instance: it may be
+reused at any length as a decorative divider or spacer — a small marker
+before a heading, a wider closing flourish — anywhere a purely
+decorative rule would otherwise go, as long as it stays two *equal*
+segments, ink then Blood Red, and is used selectively rather than
+replacing the default `bg-border` divider throughout.
+
 **Swiss-minimalist.** Borders are visible (1px solid, full ink or full cream). No
 shadows — elevation comes from a background-color step (`--card` vs `--background`).
 Whitespace is generous. Labels are uppercase monospace with wide letter-spacing.
@@ -222,7 +229,7 @@ Never mix a register outside its role.
 
 ## Buttons
 
-All buttons: `font-mono uppercase tracking-[0.2em] text-xs`. Three variants:
+All buttons: `font-mono uppercase tracking-[0.2em] text-xs`. Four variants:
 
 - **Ghost / nav** (most common): `text-muted-foreground hover:text-foreground
   transition-colors`, no border.
@@ -230,8 +237,21 @@ All buttons: `font-mono uppercase tracking-[0.2em] text-xs`. Three variants:
   hover:text-background`.
 - **Filled** (primary action, rare): `border border-foreground bg-foreground px-4
   py-2 text-background hover:bg-foreground/90`.
+- **Destructive:** `border border-primary text-primary px-4 py-2
+  hover:bg-primary hover:text-primary-foreground` — Red's already-named
+  "destructive" job (see Philosophy), now with a documented variant.
 
 **Disabled** is always `opacity-40` — never a color change.
+
+## Hover states
+
+Red is the only accent this system has, so it trivially carries any
+real hover-state signal wherever an accent color participates in a
+hover — there's no second color to subordinate. The gap this closes is
+visibility, not governance: hover states weren't demonstrated anywhere
+on the showcase page without an actual pointer. The new Destructive
+button above, and a static "Default / Hover" swatch pair for it and for
+the sidebar nav link, now show what was already true.
 
 ## Tags / pills
 

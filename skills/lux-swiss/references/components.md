@@ -146,10 +146,22 @@ may combine with either:
 ```
 
 **Two-color segment stripe.** Two equal solid blocks — ink, Blood Red —
-used as a static decorative bar (e.g. beneath a hero title):
+used as a static decorative divider or spacer, at any length: a small
+marker before a heading, a section divider, a wider closing flourish.
+Always two *equal* segments in this exact order; static and decorative
+only, never interactive or meaningful; used selectively (a handful of
+times per page) rather than replacing the default `bg-border` divider
+throughout.
 
 ```html
-<div style="display:flex; gap:4px; width:64px;">
+<!-- Small marker before a heading -->
+<div style="display:flex; gap:3px; width:36px;">
+  <div style="height:3px; flex:1; background:var(--foreground);"></div>
+  <div style="height:3px; flex:1; background:var(--primary);"></div>
+</div>
+
+<!-- Wider closing flourish -->
+<div style="display:flex; gap:6px; width:140px;">
   <div style="height:3px; flex:1; background:var(--foreground);"></div>
   <div style="height:3px; flex:1; background:var(--primary);"></div>
 </div>
@@ -161,6 +173,27 @@ combined with a deliberate size jump well beyond the normal type scale:
 
 ```html
 <h1 style="font-size:4.5rem;">Page Title.</h1>
+```
+
+**Destructive button hover, Default vs. Hover.** Makes Red's real hover
+signal visible without a live pointer:
+
+```html
+<button style="border:1px solid var(--primary); background:none;
+  color:var(--primary); padding:8px 16px;">Delete</button>
+<!-- :hover (or a static .is-hover-demo modifier class for illustration) -->
+<button style="border:1px solid var(--primary); background:var(--primary);
+  color:var(--primary-foreground); padding:8px 16px;">Delete</button>
+```
+
+**Nav-link hover, Default vs. Hover.** A plain opacity shift — no
+decorative flourish exists here, unlike Tri-Swiss's turquoise-flourish
+nav link, since this system has no second color to add one with:
+
+```html
+<a style="color:var(--primary-foreground); opacity:0.75;">Section</a>
+<!-- :hover (or a static .is-hover-demo modifier class for illustration) -->
+<a style="color:var(--primary-foreground); opacity:1;">Section</a>
 ```
 
 ## Iconography (Lucide, restyled)

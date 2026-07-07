@@ -27,11 +27,13 @@ relate.
 **Duotone strict, Swiss-minimalist.** Two functional colors — ink (`#0a0a0a`) and
 warm cream (`#f5efe0`) — plus a single blood-red accent (`#8b2e2e`) that now also
 marks a genuine Structural Block (a solid-color sidebar/hero band, capped at ~25%
-of viewport, or a bold word inside a heading) and one governed brand-moment
-element per page (larger and bolder than any other heading). No success
-green, no info blue, no second accent. Win/loss, active/inactive, emphasis, and
-error are all expressed through **typography weight, spacing, and contrast — never
-by adding a color.**
+of viewport, or a bold word inside a heading), one governed brand-moment
+element per page (larger and bolder than any other heading), and hover-state
+feedback wherever an accent signals interactivity. The two-color segment
+stripe — ink then Blood Red — is reusable at any length as a decorative
+divider, not a one-off. No success green, no info blue, no second accent.
+Win/loss, active/inactive, emphasis, and error are all expressed through
+**typography weight, spacing, and contrast — never by adding a color.**
 
 - Visible 1px borders everywhere; **no shadows** (elevation is a background step).
 - Generous whitespace; mostly square corners.
