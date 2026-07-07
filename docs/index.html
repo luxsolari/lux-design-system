@@ -67,11 +67,6 @@
     a { color:inherit; }
     .icon { width:20px; height:20px; fill:none; stroke:currentColor;
       stroke-width:1.5; stroke-linecap:square; stroke-linejoin:miter; }
-    /* nav */
-    nav { display:flex; align-items:center; justify-content:space-between;
-      padding:20px 0; border-bottom:1px solid var(--border); }
-    .wordmark { font-family:var(--font-mono); font-weight:700; letter-spacing:0.15em;
-      text-transform:uppercase; font-size:0.8rem; }
     .toggle { display:flex; align-items:baseline; gap:6px; font-family:var(--font-mono);
       font-size:0.75rem; text-transform:uppercase; letter-spacing:0.2em; }
     .toggle button { background:none; border:none; padding:0; cursor:pointer;
@@ -120,15 +115,41 @@
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <nav>
-      <span class="wordmark">Lux / Design System</span>
-      <div class="toggle" role="group" aria-label="Color theme">
-        <button data-theme-btn="light" aria-pressed="true">Light</button>
-        <span class="mid">·</span>
-        <button data-theme-btn="dark" aria-pressed="false">Dark</button>
+  <div class="layout">
+    <aside class="sidebar">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between;">
+          <span class="sidebar-wordmark">Lux Swiss</span>
+          <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" data-nav-toggle>
+            <svg class="icon" viewBox="0 0 24 24" style="color:var(--primary-foreground);">
+              <line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/>
+            </svg>
+          </button>
+        </div>
+        <nav class="sidebar-nav" data-nav-list>
+          <a href="#palette">Palette</a>
+          <a href="#typography">Typography</a>
+          <a href="#components">Components</a>
+          <a href="#charts">Charts</a>
+        </nav>
       </div>
-    </nav>
+      <div class="sidebar-bottom">
+        <div class="toggle" role="group" aria-label="Color theme">
+          <button data-theme-btn="light" aria-pressed="true">Light</button>
+          <span class="mid">·</span>
+          <button data-theme-btn="dark" aria-pressed="false">Dark</button>
+        </div>
+        <a href="https://github.com/luxsolari/lux-swiss">
+          GitHub
+          <svg class="icon" viewBox="0 0 24 24" width="14" height="14" style="color:var(--primary-foreground);">
+            <path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+          </svg>
+        </a>
+        <span>© 2026 Lux Solari</span>
+      </div>
+    </aside>
+    <div class="content">
+      <div class="content-inner">
     <main>
       <!-- sections appended in Tasks 3–7 -->
       <section id="hero" style="border-top:none;">
@@ -439,6 +460,8 @@
         </div>
       </footer>
     </main>
+      </div>
+    </div>
   </div>
   <script type="module">
     import * as Plot from "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm";
