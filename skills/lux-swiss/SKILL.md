@@ -55,6 +55,14 @@ active/inactive, emphasis, error — all differentiated by weight, size, spacing
 contrast. If you feel the urge to add a color, add a `font-bold`, a size step, or
 whitespace instead.
 
+Blood red also has a third job beyond accent/destructive/ring: a
+**Structural Block** — a solid-color sidebar/nav rail or hero band (pick
+one per layout, capped at ~25% of viewport width/height), plus an
+independent bold-word accent inside a heading that may combine with
+either. This is not a second color — it is a new layout job for the one
+accent this system already has. Outside that one block, ink and cream
+continue to dominate every other surface exactly as before.
+
 **Swiss-minimalist.** Borders are visible (1px solid, full ink or full cream). No
 shadows — elevation comes from a background-color step (`--card` vs `--background`).
 Whitespace is generous. Labels are uppercase monospace with wide letter-spacing.
@@ -101,6 +109,18 @@ Dark mode is the `.dark` class on `<html>`. Toggle with
 `document.documentElement.classList.toggle("dark", isDark)` and persist under a
 `theme` key in `localStorage`. In Tailwind 4 the variant is
 `@custom-variant dark (&:is(.dark *));` (already in `theme.css`).
+
+### The brand-moment device — read this before using it
+
+Lux Swiss has no second color, so it needs a different way to express
+Tri-Swiss's "one governed brand moment" job (that system uses a rare
+highlight color for it). Here it's typographic: **exactly one element per
+page** — the hero wordmark — renders larger and bolder than anything else
+on the page. Neither Space Grotesk nor Space Mono actually ships a weight
+past 700 (already every heading's weight), so this device combines the
+heaviest real weight (700) with a deliberate size jump — dramatically
+larger than the type scale otherwise allows. Zero new color, used exactly
+once per page; every other heading keeps the normal type scale.
 
 ## Typography
 
@@ -271,6 +291,10 @@ fill-opacity, and outline rings — never a new color. See
 ## Do not
 
 - **No success green / info blue / second accent.** Weight, size, or layout instead.
+- **The Structural Block and brand-moment device are not new colors.**
+  They're a new layout job for the one accent this system already has
+  (Structural Block) and a typographic-only device (brand moment) —
+  neither adds a second hue.
 - **No shadows.** Depth is border presence + background steps.
 - **No chart libraries except restyled Observable Plot.** Hand-rolled SVG is the
   default; reach for Plot only when complexity earns it, restyled to the palette.
