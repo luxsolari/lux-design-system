@@ -5,10 +5,11 @@ is manual. Ordered by audience intent.
 
 ## One-time repo setup (GitHub Settings — author only, cannot be scripted here)
 - [ ] **Settings → Pages → Source: `main` / `/docs`.** Live at
-      https://luxsolari.github.io/lux-design-system/
+      https://luxsolari.github.io/lux-swiss/
 - [ ] **Settings → General → Social preview:** upload `docs/assets/social-card.png`.
-- [ ] **Description (About):** `Duotone Swiss — a strict two-color design system as
-      a Claude Code plugin. One install, one opinionated aesthetic everywhere.`
+- [ ] **Description (About):** `Lux Swiss (formerly Duotone Swiss) — a strict
+      two-color design system as a Claude Code plugin. One install, one
+      opinionated aesthetic everywhere.`
 - [ ] **Topics:** `claude-code`, `claude-code-plugin`, `design-system`,
       `swiss-design`, `duotone`, `tailwindcss`, `design-tokens`.
 
@@ -19,7 +20,7 @@ is manual. Ordered by audience intent.
 
 ## Tier 2 — design / dev communities (after the page is polished)
 - [ ] Bluesky / X thread led by the social card (light+dark + components + a chart).
-- [ ] Show HN: "Show HN: Duotone Swiss — a strict two-color design system as a
+- [ ] Show HN: "Show HN: Lux Swiss — a strict two-color design system as a
       Claude Code plugin" (weekday morning ET).
 - [ ] r/web_design, r/Frontend, r/SideProject.
 - [ ] Product Hunt (the live page clears the bar).

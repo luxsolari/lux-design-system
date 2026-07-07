@@ -1,19 +1,19 @@
 # Lux Design System
 
-[![Version](https://img.shields.io/github/v/release/luxsolari/lux-design-system)](https://github.com/luxsolari/lux-design-system/releases)
+[![Version](https://img.shields.io/github/v/release/luxsolari/lux-swiss)](https://github.com/luxsolari/lux-swiss/releases)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 <p align="center">
-  <a href="https://luxsolari.github.io/lux-design-system/">
-    <img src="docs/assets/hero-light.png" alt="Duotone Swiss — strict two-color design system" width="900" />
+  <a href="https://luxsolari.github.io/lux-swiss/">
+    <img src="docs/assets/hero-light.png" alt="Lux Swiss — strict two-color design system" width="900" />
   </a>
 </p>
 
-<p align="center"><strong><a href="https://luxsolari.github.io/lux-design-system/">View the live demo →</a></strong></p>
+<p align="center"><strong><a href="https://luxsolari.github.io/lux-swiss/">View the live demo →</a></strong></p>
 
-A Claude Code plugin that teaches Claude **Duotone Swiss** — Lux Solari's house
-design language — so every project you build shares one consistent, opinionated
-aesthetic.
+A Claude Code plugin that teaches Claude **Lux Swiss** (formerly Duotone
+Swiss) — Lux Solari's house design language — so every project you build
+shares one consistent, opinionated aesthetic.
 
 ## The aesthetic
 
@@ -45,11 +45,11 @@ The component library, palette, and hand-rolled + Observable Plot charts:
 
 ## What it does
 
-Once installed, the `lux-design-system` skill activates automatically whenever
+Once installed, the `lux-swiss` skill activates automatically whenever
 Claude builds or restyles UI — components, pages, forms, dashboards, Tailwind/CSS
 themes — and applies these tokens and patterns by default, even if you don't name
 the design system. You can also invoke it explicitly ("apply my design system",
-"make this duotone swiss").
+"make this lux swiss", "make this duotone swiss").
 
 The skill bundles:
 
@@ -64,7 +64,7 @@ Add the marketplace, then install:
 
 ```
 /plugin marketplace add luxsolari/lux-solari-plugins
-/plugin install lux-design-system
+/plugin install lux-swiss
 ```
 
 ## Applying it to a project
