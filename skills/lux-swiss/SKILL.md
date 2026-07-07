@@ -254,7 +254,7 @@ two-font rule, no other icon library, no icon fonts, no emoji.
 
 Restyle Lucide's three off-identity defaults; keep everything else:
 
-| Attribute | Lucide default | Duotone Swiss |
+| Attribute | Lucide default | Lux Swiss |
 |-----------|---------------|---------------|
 | `stroke-width` | `2` | `1.5` |
 | `stroke-linecap` | `round` | `square` |
