@@ -103,7 +103,9 @@
       font-family:var(--font-mono); font-size:0.7rem; text-transform:uppercase;
       letter-spacing:0.12em; }
     .sidebar-bottom a { color:var(--primary-foreground); text-decoration:none;
-      opacity:0.85; display:inline-flex; align-items:center; gap:6px; }
+      opacity:0.85; display:inline-flex; align-items:center; gap:6px;
+      transition:opacity 0.15s; }
+    .sidebar-bottom a:hover { opacity:1; }
     .sidebar-bottom .toggle button { color:var(--primary-foreground); opacity:0.6; }
     .sidebar-bottom .toggle button[aria-pressed="true"] { opacity:1; }
     .sidebar-bottom .toggle .mid { color:var(--primary-foreground); opacity:0.4; }
@@ -603,6 +605,11 @@
       btn.addEventListener("click", function () {
         var open = list.classList.toggle("open");
         btn.setAttribute("aria-expanded", String(open));
+      });
+      list.addEventListener("click", function (e) {
+        if (!e.target.closest("a")) return;
+        list.classList.remove("open");
+        btn.setAttribute("aria-expanded", "false");
       });
     })();
   </script>
