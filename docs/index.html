@@ -73,6 +73,17 @@
       font:inherit; letter-spacing:inherit; text-transform:inherit; color:var(--muted-foreground); }
     .toggle button[aria-pressed="true"] { color:var(--foreground); }
     .toggle .mid { color:var(--muted-foreground); opacity:0.4; }
+
+    /* Hover-state visibility demos. .is-hover-demo mirrors the :hover
+       rule's exact declarations as a static class, so the state is
+       visible in a screenshot as well as to a live pointer. */
+    .btn-destructive { border:1px solid var(--primary); background:none; color:var(--primary);
+      transition:background-color 0.15s, color 0.15s; }
+    .btn-destructive:hover, .btn-destructive.is-hover-demo { background:var(--primary); color:var(--primary-foreground); }
+    .demo-nav-link { color:var(--primary-foreground); text-decoration:none; opacity:0.75;
+      font-family:var(--font-mono); font-size:0.8rem; text-transform:uppercase; letter-spacing:0.15em;
+      transition:opacity 0.15s; }
+    .demo-nav-link:hover, .demo-nav-link.is-hover-demo { opacity:1; }
     /* Structural Block — sidebar layout */
     .layout { display:flex; min-height:100vh; }
     .sidebar { width:22%; min-width:220px; max-width:280px; flex-shrink:0;
@@ -326,7 +337,13 @@
         </blockquote>
       </section>
       <section id="components">
-        <div class="divider"><h3>Components</h3><span class="rule"></span></div>
+        <div class="divider">
+          <div style="display:flex; gap:3px; width:36px;" aria-hidden="true">
+            <div style="height:3px; flex:1; background:var(--foreground);"></div>
+            <div style="height:3px; flex:1; background:var(--primary);"></div>
+          </div>
+          <h3>Components</h3><span class="rule"></span>
+        </div>
         <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:20px;">
 
           <div style="border:1px solid var(--border); padding:20px;">
@@ -341,6 +358,8 @@
                 padding:8px 14px;">Ghost</button>
               <button style="border:1px solid var(--foreground); background:none; padding:8px 14px;
                 opacity:0.4;" disabled>Disabled</button>
+              <button class="btn-destructive" style="padding:8px 14px; font:inherit;
+                letter-spacing:inherit; text-transform:inherit;">Destructive</button>
             </div>
           </div>
 
@@ -406,6 +425,35 @@
             </div>
           </div>
 
+          <div style="border:1px solid var(--border); padding:20px;">
+            <p class="label" style="margin-bottom:16px;">Hover — destructive button <span style="text-transform:none; letter-spacing:normal; color:var(--muted-foreground);">Red's real signal, made visible</span></p>
+            <div style="display:flex; gap:24px; font-family:var(--font-mono);
+                        text-transform:uppercase; letter-spacing:0.2em; font-size:0.7rem;">
+              <div style="display:flex; flex-direction:column; gap:8px; align-items:flex-start;">
+                <span style="font-size:0.65rem; letter-spacing:0.12em; color:var(--muted-foreground);">Default</span>
+                <button class="btn-destructive" style="padding:8px 16px; font:inherit; letter-spacing:inherit; text-transform:inherit;">Delete</button>
+              </div>
+              <div style="display:flex; flex-direction:column; gap:8px; align-items:flex-start;">
+                <span style="font-size:0.65rem; letter-spacing:0.12em; color:var(--muted-foreground);">Hover</span>
+                <button class="btn-destructive is-hover-demo" style="padding:8px 16px; font:inherit; letter-spacing:inherit; text-transform:inherit;">Delete</button>
+              </div>
+            </div>
+          </div>
+
+          <div style="border:1px solid var(--border); padding:20px;">
+            <p class="label" style="margin-bottom:16px;">Hover — nav link <span style="text-transform:none; letter-spacing:normal; color:var(--muted-foreground);">Plain opacity shift, no second color</span></p>
+            <div style="display:flex; gap:0; background:var(--primary); padding:16px;">
+              <div style="flex:1; display:flex; flex-direction:column; gap:8px; align-items:flex-start;">
+                <span style="font-family:var(--font-mono); font-size:0.65rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--primary-foreground); opacity:0.7;">Default</span>
+                <a href="#components" class="demo-nav-link" onclick="return false;">Section</a>
+              </div>
+              <div style="flex:1; display:flex; flex-direction:column; gap:8px; align-items:flex-start;">
+                <span style="font-family:var(--font-mono); font-size:0.65rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--primary-foreground); opacity:0.7;">Hover</span>
+                <a href="#components" class="demo-nav-link is-hover-demo" onclick="return false;">Section</a>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
       <section id="charts">
@@ -433,6 +481,13 @@
                 points="160,55 200,75 240,90 280,80 320,70"/>
             </svg>
           </figure>
+        </div>
+
+        <div style="display:flex; justify-content:center; padding:32px 0 0;">
+          <div style="display:flex; gap:6px; width:140px;" aria-hidden="true">
+            <div style="height:3px; flex:1; background:var(--foreground);"></div>
+            <div style="height:3px; flex:1; background:var(--primary);"></div>
+          </div>
         </div>
 
         <figure style="margin:32px 0 0;">
