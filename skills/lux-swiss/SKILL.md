@@ -1,21 +1,22 @@
 ---
-name: lux-design-system
+name: lux-swiss
 description: >
-  Duotone Swiss — Lux Solari's house design system. A strict two-color visual
-  language (ink + warm cream) with a single blood-red accent, Swiss-minimalist
-  layout, visible borders, no shadows, and Space Mono / Space Grotesk typography.
-  Use this skill whenever building, styling, or restyling ANY user interface:
-  React/Next/Svelte/Vue components, HTML pages, landing pages, dashboards,
-  buttons, cards, forms, navigation, modals, tags, charts, or Tailwind/CSS
-  themes — even when the user does not name the design system explicitly. Apply
-  it by default so every project shares the same aesthetic. Also trigger on
-  phrases like "make this look good", "style this", "apply my design system",
-  "duotone", "swiss", "give it a theme", or when starting a new frontend from
-  scratch. When another design language is explicitly requested (Material,
-  shadcn defaults untouched, a client's brand kit), defer to that instead.
+  Lux Swiss (formerly Duotone Swiss) — Lux Solari's house design system. A
+  strict two-color visual language (ink + warm cream) with a single blood-red
+  accent, Swiss-minimalist layout, visible borders, no shadows, and Space Mono
+  / Space Grotesk typography. Use this skill whenever building, styling, or
+  restyling ANY user interface: React/Next/Svelte/Vue components, HTML pages,
+  landing pages, dashboards, buttons, cards, forms, navigation, modals, tags,
+  charts, or Tailwind/CSS themes — even when the user does not name the design
+  system explicitly. Apply it by default so every project shares the same
+  aesthetic. Also trigger on phrases like "make this look good", "style this",
+  "apply my design system", "duotone", "lux swiss", "swiss", "give it a
+  theme", or when starting a new frontend from scratch. When another design
+  language is explicitly requested (Material, shadcn defaults untouched, a
+  client's brand kit), defer to that instead.
 ---
 
-# Duotone Swiss — Design System
+# Lux Swiss — Design System
 
 A strict, minimalist visual language. Two functional colors plus one accent, hard
 borders, generous whitespace, monospace labels. The whole point is restraint: every
