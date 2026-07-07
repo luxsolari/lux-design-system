@@ -27,18 +27,15 @@ All notable changes to this plugin are documented here. Format follows
   page (the hero wordmark) rendered at the heaviest available weight (700)
   combined with a deliberate size jump, since neither Space Grotesk nor
   Space Mono ships past weight 700 (`SKILL.md`, `references/components.md`).
-- **Two-color segment stripe** (ink, Blood Red) — a static decorative bar
-  pattern, demonstrated beneath the showcase page's hero title
-  (`references/components.md`, `docs/index.html`).
+- **Two-color segment stripe** (ink, Blood Red) — a static decorative
+  divider/spacer pattern, reusable at any length rather than a single
+  fixed instance, demonstrated at three different lengths on the
+  showcase page (`SKILL.md`, `references/components.md`,
+  `docs/index.html`).
 - **Showcase page restructure** — `docs/index.html` now uses a persistent
   sidebar nav (wordmark, anchor nav, theme toggle, GitHub link,
   copyright), collapsing to a red top band with a hamburger toggle below
   the mobile breakpoint.
-- **Segment stripe reuse** — the two-color stripe is no longer a single
-  fixed instance under the hero; it's now a general decorative
-  divider/spacer reusable at any length, demonstrated at three different
-  lengths on the showcase page (`SKILL.md`, `references/components.md`,
-  `docs/index.html`).
 - **Destructive button and hover-state visibility** — a new Destructive
   button variant (Red's already-named "destructive" job, now with a
   documented variant), plus two "Default / Hover" static swatch pairs
