@@ -4,7 +4,8 @@ Contributions welcome! Here's how:
 
 ## Design changes
 The design language lives in `skills/lux-swiss/`. Keep the two governing
-rules intact — **duotone strict** (two colors + one accent, no exceptions) and
+rules intact — **duotone strict** (two colors + one accent, used more freely for
+action/Structural-Block/brand-moment jobs, but never a second hue) and
 **Swiss-minimalist** (visible borders, no shadows). Changes that add a color or a
 shadow contradict the system and won't be accepted; express new states through
 weight, size, spacing, and contrast instead.

@@ -24,7 +24,10 @@ relate.
 ## The aesthetic
 
 **Duotone strict, Swiss-minimalist.** Two functional colors — ink (`#0a0a0a`) and
-warm cream (`#f5efe0`) — plus a single blood-red accent (`#8b2e2e`). No success
+warm cream (`#f5efe0`) — plus a single blood-red accent (`#8b2e2e`) that now also
+marks a genuine Structural Block (a solid-color sidebar/hero band, capped at ~25%
+of viewport, or a bold word inside a heading) and one governed brand-moment
+element per page (larger and bolder than any other heading). No success
 green, no info blue, no second accent. Win/loss, active/inactive, emphasis, and
 error are all expressed through **typography weight, spacing, and contrast — never
 by adding a color.**
