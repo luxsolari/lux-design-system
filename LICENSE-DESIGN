@@ -6,8 +6,8 @@ Scope: this license applies only to the design-system content in this
 repository — `skills/lux-swiss/`, `docs/index.html`, `docs/assets/`, and
 `HOUSE-MARK.md`. Everything else in this repository (build/tooling
 scripts, CI configuration, git hooks, and project documentation such as
-this README, CONTRIBUTING, and CHANGELOG) is licensed under the MIT
-License instead; see `LICENSE`.
+this README, CONTRIBUTING, and CHANGELOG) is licensed under the
+MIT/X11 License instead; see `LICENSE`.
 
 This work is licensed under a Creative Commons Attribution-ShareAlike
 4.0 International License. To view a copy of this license, visit

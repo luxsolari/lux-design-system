@@ -1,7 +1,7 @@
 # Lux Swiss
 
 [![Version](https://img.shields.io/github/v/release/luxsolari/lux-swiss)](https://github.com/luxsolari/lux-swiss/releases)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![License: MIT/X11](https://img.shields.io/badge/license-MIT%2FX11-blue.svg)](LICENSE)
 [![Design: CC BY-SA 4.0](https://img.shields.io/badge/design-CC%20BY--SA%204.0-lightgrey.svg)](LICENSE-DESIGN)
 
 <p align="center">
@@ -97,5 +97,5 @@ This repository is dual-licensed:
   commercially, provided you credit Lux Solari and license your
   derivative under the same terms. See [LICENSE-DESIGN](LICENSE-DESIGN).
 - **Everything else** (build/tooling scripts, CI config, git hooks, and
-  project documentation such as this README) — MIT © 2026 Lux Solari
-  (Luciano Laje). See [LICENSE](LICENSE).
+  project documentation such as this README) — MIT/X11 © 2026 Lux
+  Solari (Luciano Laje). See [LICENSE](LICENSE).
