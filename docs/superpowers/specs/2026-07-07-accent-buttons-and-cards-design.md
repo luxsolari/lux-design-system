@@ -24,7 +24,7 @@ existing defaults.
 ## 2. Non-goals
 
 - Not a redesign of the existing Ghost/Outlined/Filled buttons or the
-  existing plain Card / Emphasis card — all unchanged, this is additive.
+  existing plain Card — unchanged, this is additive.
 - No second accent color, no dual-accent hover pattern, no hero changes
   — those are Tri-Swiss-specific (see the note above).
 - Not a second (or any additional) color. Ink, cream, and Blood Red
@@ -43,9 +43,10 @@ button's already-established "primary action, rare" role.
 
 **Accent card** — a new static card variant: a Blood-Red border plus a
 subtle red-tinted background wash (e.g. `bg-primary/5`), stronger than
-the existing plain-bordered "Emphasis card" (which uses a red border
-alone, no wash). Since this system has only one accent, the
-differentiation from Emphasis card is the added wash, not a new color.
+the existing plain card (which has no red border at all). Since this
+system has only one accent, the differentiation is the added border +
+wash, not a new color — and there is no prior "Emphasis card" pattern in
+this repo to compare against (unlike Tri-Swiss).
 
 ## 4. Interactive card
 
