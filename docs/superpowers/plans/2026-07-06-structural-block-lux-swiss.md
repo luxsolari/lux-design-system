@@ -1,8 +1,8 @@
-# Structural Block Pattern (Duotone Swiss) Implementation Plan
+# Structural Block Pattern (Lux Swiss) Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Give Blood Red a new "Structural Block" job (sidebar/hero-band/bold-word), restructure the Duotone Swiss showcase page around a persistent sidebar nav, and add a weight+size "brand-moment" device as this system's typographic equivalent of Tri-Swiss's turquoise "one brand moment" job.
+**Goal:** Give Blood Red a new "Structural Block" job (sidebar/hero-band/bold-word), restructure the Lux Swiss showcase page around a persistent sidebar nav, and add a weight+size "brand-moment" device as this system's typographic equivalent of Tri-Swiss's turquoise "one brand moment" job.
 
 **Architecture:** New branch `feat/structural-block-and-weight-highlight`, created off `main` at `v1.0.0` (already checked out, spec committed as `92371f6`). Plain HTML/CSS/vanilla-JS, no build step, matching the existing showcase page's stack.
 
@@ -24,7 +24,7 @@
 ### Task 1: `SKILL.md` — Structural Block job, guardrail carve-out, and the brand-moment device
 
 **Files:**
-- Modify: `skills/lux-design-system/SKILL.md` (Philosophy section, a new subsection after Palette, and the Do-not list)
+- Modify: `skills/lux-swiss/SKILL.md` (Philosophy section, a new subsection after Palette, and the Do-not list)
 
 **Interfaces:** N/A — documentation only.
 
@@ -70,7 +70,7 @@ Immediately after it, before `## Typography`, insert:
 
 ### The brand-moment device — read this before using it
 
-Duotone Swiss has no second color, so it needs a different way to express
+Lux Swiss has no second color, so it needs a different way to express
 Tri-Swiss's "one governed brand moment" job (that system uses a rare
 highlight color for it). Here it's typographic: **exactly one element per
 page** — the hero wordmark — renders larger and bolder than anything else
@@ -100,13 +100,13 @@ Immediately after it, insert:
 
 - [ ] **Step 4: Verify the edits landed**
 
-Run: `rtk grep -n "Structural Block\|brand-moment device" skills/lux-design-system/SKILL.md`
+Run: `rtk grep -n "Structural Block\|brand-moment device" skills/lux-swiss/SKILL.md`
 Expected: at least 4 matches (Philosophy paragraph, subsection heading, subsection body, Do-not bullet).
 
 - [ ] **Step 5: Commit**
 
 ```bash
-rtk git add skills/lux-design-system/SKILL.md
+rtk git add skills/lux-swiss/SKILL.md
 rtk git commit -m "feat(skill): add Structural Block job and brand-moment device"
 ```
 
@@ -115,7 +115,7 @@ rtk git commit -m "feat(skill): add Structural Block job and brand-moment device
 ### Task 2: `components.md` — new patterns for the sidebar, hero band, bold word, segment stripe, and brand moment
 
 **Files:**
-- Modify: `skills/lux-design-system/references/components.md`
+- Modify: `skills/lux-swiss/references/components.md`
 
 **Interfaces:** N/A.
 
@@ -189,13 +189,13 @@ combined with a deliberate size jump well beyond the normal type scale:
 
 - [ ] **Step 2: Verify the section was inserted in the right place**
 
-Run: `rtk grep -n "^## " skills/lux-design-system/references/components.md`
+Run: `rtk grep -n "^## " skills/lux-swiss/references/components.md`
 Expected: "## Structural Block — sidebar, hero band, bold word, brand moment" appears directly between "### Observable Plot (the one sanctioned library)"'s parent section and "## Iconography (Lucide, restyled)".
 
 - [ ] **Step 3: Commit**
 
 ```bash
-rtk git add skills/lux-design-system/references/components.md
+rtk git add skills/lux-swiss/references/components.md
 rtk git commit -m "feat(components): add Structural Block and brand-moment patterns"
 ```
 
@@ -360,7 +360,7 @@ Replace it with:
           <span class="mid">·</span>
           <button data-theme-btn="dark" aria-pressed="false">Dark</button>
         </div>
-        <a href="https://github.com/luxsolari/lux-design-system">
+        <a href="https://github.com/luxsolari/lux-swiss">
           GitHub
           <svg class="icon" viewBox="0 0 24 24" width="14" height="14" style="color:var(--primary-foreground);">
             <path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
@@ -453,13 +453,13 @@ rtk git commit -m "feat(showcase): restructure page around a persistent sidebar 
 Find this exact line in the `#hero` section:
 
 ```html
-        <h1 style="margin:20px 0 0;">Duotone Swiss.</h1>
+        <h1 style="margin:20px 0 0;">Lux Swiss.</h1>
 ```
 
 Replace it with:
 
 ```html
-        <h1 style="margin:20px 0 0; font-size:4.5rem;">Duotone Swiss.</h1>
+        <h1 style="margin:20px 0 0; font-size:4.5rem;">Lux Swiss.</h1>
 ```
 
 - [ ] **Step 2: Add the two-color segment stripe beneath it**
@@ -544,7 +544,7 @@ Find this exact paragraph:
 
 ```markdown
 ## Design changes
-The design language lives in `skills/lux-design-system/`. Keep the two governing
+The design language lives in `skills/lux-swiss/`. Keep the two governing
 rules intact — **duotone strict** (two colors + one accent, no exceptions) and
 **Swiss-minimalist** (visible borders, no shadows). Changes that add a color or a
 shadow contradict the system and won't be accepted; express new states through
@@ -555,7 +555,7 @@ Replace it with:
 
 ```markdown
 ## Design changes
-The design language lives in `skills/lux-design-system/`. Keep the two governing
+The design language lives in `skills/lux-swiss/`. Keep the two governing
 rules intact — **duotone strict** (two colors + one accent, used more freely for
 action/Structural-Block/brand-moment jobs, but never a second hue) and
 **Swiss-minimalist** (visible borders, no shadows). Changes that add a color or a
@@ -654,7 +654,7 @@ Expected: 6 lines of `wrote <filename>.png`, no thrown errors.
 - [ ] **Step 2: Visually confirm the sidebar layout and new patterns render correctly**
 
 Open `docs/assets/hero-light.png` and confirm: the red sidebar appears on
-the left, the hero wordmark "Duotone Swiss." renders noticeably larger
+the left, the hero wordmark "Lux Swiss." renders noticeably larger
 than the surrounding body text, the two-color (ink/red) segment stripe
 appears beneath it, and the word "accent" in the hero subhead renders in
 red.
@@ -695,7 +695,7 @@ Expected: branch created on `origin`.
 gh pr create --title "feat: Structural Block pattern and brand-moment device" --body "$(cat <<'EOF'
 ## Summary
 - Adds the Structural Block pattern (docs/superpowers/specs/2026-07-06-structural-block-and-duotone-weight-highlight-design.md): a sidebar/hero-band/bold-word job for Blood Red, restructuring the showcase page around a persistent sidebar nav.
-- Adds a governed, typographic-only "brand-moment device" — this system's equivalent of Tri-Swiss's turquoise "one brand moment" job, since Duotone Swiss keeps its two-color identity (no new color token). Neither Space Grotesk nor Space Mono ships past weight 700, so the device combines that weight with a deliberate size jump.
+- Adds a governed, typographic-only "brand-moment device" — this system's equivalent of Tri-Swiss's turquoise "one brand moment" job, since Lux Swiss keeps its two-color identity (no new color token). Neither Space Grotesk nor Space Mono ships past weight 700, so the device combines that weight with a deliberate size jump.
 - Adds a two-color (ink/Blood Red) segment-stripe pattern, demonstrated beneath the showcase page's hero title.
 - Showcase page, component catalogue, README, CONTRIBUTING, and CHANGELOG all updated to match; screenshots regenerated.
 

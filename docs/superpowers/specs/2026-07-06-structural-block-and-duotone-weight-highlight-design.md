@@ -1,4 +1,4 @@
-# Structural Block Pattern (Tri-Swiss + Duotone Swiss) — Design Spec
+# Structural Block Pattern (Tri-Swiss + Lux Swiss) — Design Spec
 
 > This is a copy of the spec from `luxsolari/tri-swiss` — the design decision
 > spans both sibling systems. See that repo's
@@ -9,17 +9,17 @@
 Status: approved
 Date: 2026-07-06
 Repos: `luxsolari/tri-swiss` (branch `feat/expand-accents-drop-jost`) and
-`luxsolari/lux-design-system` (this repo, branch
+`luxsolari/lux-swiss` (this repo, branch
 `feat/structural-block-and-weight-highlight`, off `main` @ `v1.0.0`)
 
 ## 1. Purpose
 
 Give the primary accent in both house design systems a genuine structural
 layout role — a solid color-block panel — and restructure each system's
-showcase page to actually use it. Additionally, give Duotone Swiss the
+showcase page to actually use it. Additionally, give Lux Swiss the
 functional equivalent of what Pastel Turquoise does in Tri-Swiss (a
 governed "one special moment" device), expressed through typography
-instead of a new color, so Duotone Swiss's two-color identity stays
+instead of a new color, so Lux Swiss's two-color identity stays
 literally true.
 
 ## 2. Non-goals
@@ -54,10 +54,10 @@ carve-out: at most one Structural Block per layout, capped at ~25%
 viewport width/height. Outside that block, ink/cream dominate every other
 surface exactly as before.
 
-## 4. The brand-moment device (Duotone Swiss's equivalent of Turquoise's "one moment" job)
+## 4. The brand-moment device (Lux Swiss's equivalent of Turquoise's "one moment" job)
 
 Exactly one element per page — the hero wordmark — renders larger and
-bolder than anything else on the page: Duotone Swiss's typographic
+bolder than anything else on the page: Lux Swiss's typographic
 equivalent of Tri-Swiss's turquoise "one brand moment."
 
 **Resolved during planning:** neither Space Grotesk nor Space Mono
@@ -70,19 +70,19 @@ headings) with a deliberate size jump — the brand-moment element is
 dramatically larger than the type scale otherwise allows. Zero new color.
 No Google Fonts `<link>` change needed (900 was never actually servable).
 
-There is no Duotone Swiss equivalent of Tri-Swiss's turquoise hover-
-flourish or tri-part segment stripe as three-color devices — Duotone Swiss
+There is no Lux Swiss equivalent of Tri-Swiss's turquoise hover-
+flourish or tri-part segment stripe as three-color devices — Lux Swiss
 has only two structural colors plus the one accent, so its segment stripe
 (§5 below) is two-color (ink, Blood Red), and there is no hover-flourish
 mechanism since there's no second color to use for it.
 
 ## 5. Files and page restructure
 
-- `skills/lux-design-system/SKILL.md` — add the Structural Block job and
+- `skills/lux-swiss/SKILL.md` — add the Structural Block job and
   guardrail carve-out to the Philosophy section; add a new "brand-moment
   device" subsection; add a Do-not clarification that neither new device
   is a second color.
-- `skills/lux-design-system/references/components.md` — new patterns:
+- `skills/lux-swiss/references/components.md` — new patterns:
   sidebar/nav rail, hero band, bold-word accent, the two-color segment
   stripe, and the weight+size brand-moment device.
 - `docs/index.html` — full layout restructure: persistent sidebar
