@@ -16,6 +16,23 @@ All notable changes to this plugin are documented here. Format follows
   with a background wash, and a new clickable card with an ink-to-Red
   hover transition — more color on hover/borders across cards, not just
   buttons (`SKILL.md`, `references/components.md`, `docs/index.html`).
+- **Lists and tables** — new component patterns: an unordered/ordered
+  list treatment (thin top-border dividers, no bullet glyphs, tabular
+  mono-font numbers) and a data table (bold mono header, tabular-nums,
+  no zebra striping) — markers and borders stay ink/muted-foreground
+  only, never the accent color (`SKILL.md`, `references/components.md`,
+  `docs/index.html`).
+- **Images in the grid** — new guidance for the first time: grid-aligned
+  placement with a bordered container and mono-label caption, defaulting
+  to a grayscale/duotone color treatment with full color permitted only
+  as a scoped, named exception when the photograph itself is the
+  primary content (`SKILL.md`, `references/components.md`,
+  `docs/index.html`).
+- **Richer typography demonstrations** — the `#registers` section's
+  Body and Serif specimens now show full realistic examples instead of
+  one-line placeholders, and a new "Content at any length" section
+  demonstrates short/medium/long-form body copy at the same measure
+  (`docs/index.html`).
 
 ## [2.0.0] — 2026-07-07
 

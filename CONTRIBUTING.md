@@ -12,7 +12,10 @@ weight, size, spacing, and contrast instead. The segment stripe (§ SKILL.md
 Philosophy section) is reusable at any length, not a fixed one-off — keep it
 two equal ink/Blood-Red segments regardless of length. The Accent button
 reuses the Destructive button's exact visual mechanism under a different
-semantic name — don't invent a second visual treatment for it.
+semantic name — don't invent a second visual treatment for it. List/table
+markers and borders stay ink/muted-foreground only; images default to
+grayscale/duotone, with full color reserved for the one named exception
+(§ SKILL.md "Images") where the photograph itself is the content.
 
 - Palette / token changes: update both `SKILL.md`'s tables and `assets/theme.css`
   so they never drift apart.

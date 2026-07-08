@@ -70,7 +70,10 @@ await shoot({ dsr: 2, viewport: { width: 1180, height: 1000 } }, [
   { fullViewport: true, file: "hero-light.png", dark: false },
   { fullViewport: true, file: "hero-dark.png", dark: true },
   { id: "#palette", file: "palette.png", dark: false },
+  { id: "#registers", file: "type-registers.png", dark: false },
   { id: "#components", file: "components.png", dark: false },
+  { id: "#images", file: "images.png", dark: false },
+  { id: "#text-length", file: "text-length.png", dark: false },
   { id: "#charts", file: "charts.png", dark: false },
 ]);
 

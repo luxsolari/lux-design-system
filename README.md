@@ -33,10 +33,13 @@ feedback wherever an accent signals interactivity. The two-color segment
 stripe — ink then Blood Red — is reusable at any length as a decorative
 divider, not a one-off. A new Accent button and Accent card put more color
 on hover/borders, and a new Interactive card carries the same ink-to-Red
-hover transition onto a clickable card. No success green, no info blue, no
-second accent. Win/loss, active/inactive, emphasis, and error are all
-expressed through **typography weight, spacing, and contrast — never by
-adding a color.**
+hover transition onto a clickable card. Lists, tables, and images are now
+documented patterns too — list/table borders and markers stay
+ink/muted-foreground only, and images default to a grayscale/duotone
+filter with full color as a scoped exception for photography that is
+itself the content. No success green, no info blue, no second accent.
+Win/loss, active/inactive, emphasis, and error are all expressed through
+**typography weight, spacing, and contrast — never by adding a color.**
 
 - Visible 1px borders everywhere; **no shadows** (elevation is a background step).
 - Generous whitespace; mostly square corners.
