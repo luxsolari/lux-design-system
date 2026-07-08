@@ -84,7 +84,7 @@ import * as Plot from "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm"
 const chart = Plot.plot({
   width: 640, height: 240,
   style: { background: "transparent", color: "var(--foreground)",
-           fontFamily: "'Space Mono', monospace", fontSize: "11px" },
+           fontFamily: "var(--font-mono)", fontSize: "11px" },
   x: { label: null }, y: { label: null },
   marks: [
     Plot.gridY({ stroke: "var(--muted-foreground)", strokeOpacity: 0.15 }),

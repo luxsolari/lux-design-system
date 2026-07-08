@@ -34,6 +34,13 @@ All notable changes to this plugin are documented here. Format follows
   demonstrates short/medium/long-form body copy at the same measure
   (`docs/index.html`).
 
+### Fixed
+- **Stray hardcoded font name in the Observable Plot reference snippet**
+  — `references/components.md`'s chart example set `fontFamily` to a
+  literal `'Space Mono', monospace` instead of `var(--font-mono)`, the
+  only place in the system that bypassed the font role variables (the
+  shipped `docs/index.html` chart already used the token correctly).
+
 ## [2.0.0] — 2026-07-07
 
 ### Added
