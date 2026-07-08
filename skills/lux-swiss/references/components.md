@@ -283,3 +283,89 @@ focus: outline-none ring-1 ring-ring
 ```
 
 Labels above inputs use the uppercase mono label pattern from `SKILL.md`.
+
+## Lists / tables
+
+**Unordered list.** A thin top-border divider between rows, no bullet
+glyph, ink/muted-foreground only:
+
+```jsx
+<ul className="list-none m-0 p-0">
+  <li className="border-t border-border py-3 first:border-t-0">First item</li>
+  <li className="border-t border-border py-3">Second item</li>
+  <li className="border-t border-border py-3">Third item</li>
+</ul>
+```
+
+**Ordered list.** Tabular mono-font numbers followed by body-font item
+text:
+
+```jsx
+<ol className="list-none m-0 p-0">
+  <li className="border-t border-border py-3 first:border-t-0 flex gap-3">
+    <span className="font-mono tabular-nums text-muted-foreground">01</span>
+    <span>First step</span>
+  </li>
+  <li className="border-t border-border py-3 flex gap-3">
+    <span className="font-mono tabular-nums text-muted-foreground">02</span>
+    <span>Second step</span>
+  </li>
+</ol>
+```
+
+**Table.** Bold mono header row with a 2px bottom border, 1px rows,
+tabular-nums right-aligned numeric columns, no zebra striping:
+
+```jsx
+<table className="w-full border-collapse text-sm">
+  <thead>
+    <tr className="font-mono font-bold uppercase text-xs tracking-[0.1em] border-b-2 border-border">
+      <th className="text-left py-2">Metric</th>
+      <th className="text-right py-2">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr className="border-b border-border">
+      <td className="py-2">Sessions</td>
+      <td className="py-2 text-right tabular-nums">1,209,384</td>
+    </tr>
+    <tr className="border-b border-border">
+      <td className="py-2">Conversions</td>
+      <td className="py-2 text-right tabular-nums">18,050</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+Markers, dividers, and header rules stay ink/muted-foreground only —
+never Blood Red (see `SKILL.md`'s "Lists / tables" guardrail).
+
+## Images
+
+**Grid placement.** A bordered container at a consistent aspect ratio,
+with a mono-label caption beneath:
+
+```jsx
+<figure className="m-0 border border-border" style={{ aspectRatio: "4 / 3" }}>
+  <img src="/photo.jpg" alt=""
+    style={{ width: "100%", height: "100%", objectFit: "cover", filter: "grayscale(1)" }} />
+  <figcaption className="font-mono italic text-sm text-muted-foreground p-2 border-t border-border">
+    Fig. 1 — grayscale, the default treatment.
+  </figcaption>
+</figure>
+```
+
+**Color treatment.** Default is grayscale/duotone (above). Full color is
+a named, scoped exception — only when the photograph itself is the
+primary content (blog photography, portfolio gallery, product shots),
+never as decoration:
+
+```jsx
+<figure className="m-0 border border-border" style={{ aspectRatio: "4 / 3" }}>
+  <img src="/photo.jpg" alt=""
+    style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+  <figcaption className="font-mono italic text-sm text-muted-foreground p-2 border-t border-border">
+    Fig. 2 — full color, because the photograph itself is the content.
+  </figcaption>
+</figure>
+```
