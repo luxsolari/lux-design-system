@@ -276,6 +276,49 @@ tracking-[0.12em]`.
 
 `rounded-full` is reserved for dot indicators only — never on containers or pills.
 
+## Lists / tables
+
+**Lists.** No default round bullet glyphs. Unordered list items get a
+thin top-border divider between rows (`border-top:1px solid
+var(--border)`) instead of a bullet mark. Ordered list items use
+tabular mono-font numbers (`font-mono`, Space Mono) followed by
+body-font (`font-sans`, Space Grotesk) item text.
+
+**Tables.** Bold mono-font (`font-mono`) header row with a 2px bottom
+border (matching the `.rule`/divider style used throughout this page),
+1px `border-border` between body rows, `tabular-nums` right-aligned for
+numeric columns. No zebra striping — kept consistent with the existing
+"no invented decoration" pattern.
+
+**Guardrail: markers and borders stay neutral.** List dividers and
+table borders/headers use ink/muted-foreground only — **never** the
+Blood Red accent. Using the accent as a decorative list/table marker
+would be a new, unsanctioned use of a color reserved for its named jobs
+(action, emphasis, hover). This is a hard rule, not a style preference.
+
+## Images
+
+Neither the theme nor the component library had an opinion on images
+until now.
+
+**Grid placement.** An image sits inside a bordered container (1px
+`border-border`, matching the existing card border style) spanning a
+defined number of grid columns, at a consistent aspect ratio (e.g. 4:3
+or 16:9) rather than an arbitrary crop, with a mono-label caption
+beneath it (reusing the existing `.label` caption convention already
+used elsewhere on the page).
+
+**Color treatment.** The **default and recommended** treatment is a
+grayscale or duotone filter (`filter: grayscale(1)` or a duotone
+technique mapped toward ink+cream) — this keeps the "only three color
+tokens, ever" invariant airtight and matches the historical
+Swiss/International Typographic Style tradition of black-and-white
+photography. **Full color is permitted specifically when the image
+itself is the primary content** — e.g. a blog post's photography, a
+portfolio gallery, product photography — not as a general license for
+decorative images sprinkled through UI chrome. This is a scoped, named
+exception, not an open "designer's choice."
+
 ## Iconography
 
 Icons are permitted but strictly constrained so they obey the same rules as the
@@ -332,3 +375,9 @@ fill-opacity, and outline rings — never a new color. See
 - **No raw hex in markup.** Always the semantic token.
 - **Icons: restyled Lucide only.** Monoline, `currentColor`, square caps. No icon
   fonts. **No emoji** in UI text unless explicitly requested.
+- **No accent-colored list markers or table borders.** Dividers, numbers,
+  and header rules stay ink/muted-foreground — Blood Red is reserved for
+  its named jobs, not decoration in a list or table.
+- **No full-color images outside the named photography-content
+  exception.** Default to grayscale/duotone; full color is only for
+  images that are themselves the primary content (see "Images").
