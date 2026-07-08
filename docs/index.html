@@ -93,6 +93,20 @@
     .card-interactive { display:block; text-decoration:none; color:inherit;
       border:1px solid var(--border); transition:border-color 0.15s; }
     .card-interactive:hover, .card-interactive.is-hover-demo { border-color:var(--primary); }
+
+    /* Lists, tables, images — new content components. Markers/borders
+       stay neutral (ink/muted), never the accent color. */
+    .list-plain { list-style:none; margin:0; padding:0; }
+    .list-plain li { border-top:1px solid var(--border); padding:10px 0; }
+    .list-plain li:first-child { border-top:none; }
+    table.data-table { width:100%; border-collapse:collapse; font-size:0.85rem; }
+    table.data-table th { font-family:var(--font-mono); font-weight:700; text-transform:uppercase;
+      letter-spacing:0.1em; font-size:0.7rem; text-align:left; padding:8px 0;
+      border-bottom:2px solid var(--border); }
+    table.data-table td { padding:8px 0; border-bottom:1px solid var(--border); }
+    table.data-table td.num { text-align:right; font-variant-numeric:tabular-nums; }
+    figure.img-grid { margin:0; border:1px solid var(--border); }
+    figure.img-grid figcaption { border-top:1px solid var(--border); }
     /* Structural Block — sidebar layout */
     .layout { display:flex; min-height:100vh; }
     .sidebar { width:22%; min-width:220px; max-width:280px; flex-shrink:0;
@@ -408,6 +422,29 @@
           </div>
 
           <div style="border:1px solid var(--border); padding:20px;">
+            <p class="label" style="margin-bottom:16px;">List <span style="text-transform:none; letter-spacing:normal; color:var(--muted-foreground);">— divider, not a bullet</span></p>
+            <ul class="list-plain" style="font-size:0.9rem;">
+              <li>First item</li>
+              <li>Second item</li>
+              <li>Third item</li>
+            </ul>
+          </div>
+
+          <div style="border:1px solid var(--border); padding:20px;">
+            <p class="label" style="margin-bottom:16px;">Table <span style="text-transform:none; letter-spacing:normal; color:var(--muted-foreground);">— tabular-nums, no zebra striping</span></p>
+            <table class="data-table">
+              <thead>
+                <tr><th>Metric</th><th style="text-align:right;">Value</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Sessions</td><td class="num">1,209,384</td></tr>
+                <tr><td>Conversions</td><td class="num">18,050</td></tr>
+                <tr><td>Rate</td><td class="num">1.4931%</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="border:1px solid var(--border); padding:20px;">
             <p class="label" style="margin-bottom:16px;">Card</p>
             <div style="border:1px solid var(--border); background:var(--card); padding:16px;">
               <p style="margin:0; font-family:var(--font-mono); font-weight:700;">Elevated surface</p>
@@ -500,6 +537,24 @@
             </a>
           </div>
 
+        </div>
+      </section>
+      <section id="images">
+        <div class="divider"><h3>Images in the grid</h3><span class="rule"></span></div>
+        <p class="label" style="margin:-8px 0 24px;">Grayscale/duotone by default · full color only when the photo is the content</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px;">
+          <figure class="img-grid" style="aspect-ratio:4/3;">
+            <div style="width:100%; height:75%; background:linear-gradient(135deg, var(--primary) 0%, var(--foreground) 100%); filter:grayscale(1);"></div>
+            <p style="font-family:var(--font-mono); font-style:italic; font-size:0.85rem; color:var(--muted-foreground); margin:0; padding:10px 12px;">
+              Fig. 1 — grayscale, the default treatment. Keeps the three-token palette intact.
+            </p>
+          </figure>
+          <figure class="img-grid" style="aspect-ratio:4/3;">
+            <div style="width:100%; height:75%; background:linear-gradient(135deg, var(--primary) 0%, var(--foreground) 100%);"></div>
+            <p style="font-family:var(--font-mono); font-style:italic; font-size:0.85rem; color:var(--muted-foreground); margin:0; padding:10px 12px;">
+              Fig. 2 — full color, because the photograph itself is the content — a named, scoped exception.
+            </p>
+          </figure>
         </div>
       </section>
       <section id="charts">
