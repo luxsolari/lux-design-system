@@ -19,6 +19,10 @@ All notable changes to this plugin are documented here. Format follows
   The showcase page gets a third, independent sidebar toggle ("Hero
   display": Mono · Jost), and `scripts/capture/capture.mjs` can
   screenshot any flavor/accent combination.
+- **Live chapter-divider demo** — the `#registers` section now includes
+  a "02 — Chapter Title" example using `font-display`, so toggling Jost
+  visibly demonstrates both of its named jobs (hero title and long-form
+  editorial chapter dividers), not just the hero (`docs/index.html`).
 
 ## [2.2.0] — 2026-07-10
 
