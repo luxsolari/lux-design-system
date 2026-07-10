@@ -6,8 +6,6 @@ All notable changes to this plugin are documented here. Format follows
 
 ## [Unreleased]
 
-## [2.1.0] — 2026-07-08
-
 ### Added
 - **Geist font flavor** — a `.geist` class (composes with `.dark`, exactly
   like the theme) that swaps `--font-mono`/`--font-sans` from Space
@@ -23,6 +21,10 @@ All notable changes to this plugin are documented here. Format follows
   `SKILL.md`'s Typography section now documents mono/sans/serif as one
   three-role table instead of a two-font core plus a separately-governed
   "optional register."
+
+## [2.1.0] — 2026-07-08
+
+### Added
 - **Accent button** — a fifth button variant (Red-bordered, general
   emphasis rather than destructive) using the same mechanism as the
   existing Destructive button — a separate semantic name, not a
