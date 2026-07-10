@@ -45,14 +45,14 @@ Three setup moves come first on any new project:
 2. **Install the theme.** Copy [`assets/theme.css`](assets/theme.css) into the
    project's global stylesheet (e.g. `app/globals.css`). It defines every CSS
    variable for light + dark mode, both font flavors, and the optional Jost
-   hero-display accent, and wires them to Tailwind 4 via `@theme inline`.
+   heading accent, and wires them to Tailwind 4 via `@theme inline`.
    For non-Tailwind stacks the same `:root` / `.dark` / `.geist` / `.jost`
    variables work as plain CSS custom properties.
 3. **Load the fonts.** Add the Google Fonts link for the chosen flavor
    (below) or the framework equivalent (`next/font`, etc.) — just that
    flavor's families, not both, unless the project needs a live toggle.
-   Add Jost's link separately only if you're using the [hero-display
-   accent](#hero-display-accent--jost-governed-optional) — it's opt-in,
+   Add Jost's link separately only if you're using the [heading
+   accent](#heading-accent--jost-governed-optional) — it's opt-in,
    not part of the base setup.
 
 Then compose UI from the patterns in this file. For the full component library
@@ -149,9 +149,13 @@ role's job, and never run a third flavor.
 
 | Role | Space (default) | Geist (flavor) | Use |
 |------|------|------|-----|
-| Display / mono (`font-mono`) | **Space Mono** | **Geist Mono** | Headings, display, data values, tags, nav, labels |
+| Display / mono (`font-mono`) | **Space Mono** | **Geist Mono** | Data values, tags, nav, labels — functional UI text, not headings |
 | Body / sans (`font-sans`) | **Space Grotesk** | **Geist Sans** | Body copy, UI text, prose, and dense-data/utility text (tables, fine print) at smaller size with tabular figures |
 | Serif / long-form (`font-serif`) | **Zilla Slab** | **Zilla Slab** (shared) | Long-form editorial body and pull-quotes. Never UI. |
+
+Headings (`h1`–`h6`) render through a fourth, dependent role,
+`font-display`, which defaults to `font-mono` — see [Heading accent —
+Jost](#heading-accent--jost-governed-optional) below.
 
 Space Grotesk is the proportional cousin of Space Mono (it was drawn from
 it) — a *duotone of one skeleton*, mirroring the two-color rule. Zilla
@@ -194,9 +198,10 @@ stops in either flavor):
 | **500** Medium | UI emphasis, active labels, small headings in prose |
 | **700** Bold | Strong emphasis — sparing; prefer 500 |
 
-**Heading scale** — mono, weight 700: `h1` 3rem/−0.02em/1.1 ·
-`h2` 2.25rem/−0.02em/1.15 · `h3` 1.875rem/−0.01em/1.2 · `h4` 1.5rem/1.3 ·
-`h5` 1.25rem/1.3 · `h6` 1.125rem/1.3.
+**Heading scale** — `font-display` (mono by default, Jost when toggled),
+weight 700: `h1` 3rem/−0.02em/1.1 · `h2` 2.25rem/−0.02em/1.15 ·
+`h3` 1.875rem/−0.01em/1.2 · `h4` 1.5rem/1.3 · `h5` 1.25rem/1.3 ·
+`h6` 1.125rem/1.3.
 
 **Body** — sans, weight 400, 1rem base, line-height 1.65, `kern`/`liga`/`calt`
 on, antialiased.
@@ -216,24 +221,25 @@ italic in the Space flavor, Geist Mono italic in the Geist flavor. It is
 never used for emphasis — emphasis is always weight. Treat it as a
 distinct voice for asides, not a highlighter.
 
-### Hero-display accent — Jost (governed, optional)
+### Heading accent — Jost (governed, optional)
 
-A fourth typeface, but not a fourth role and not a third flavor. Governed
-as strictly as the highlight color's exceptions: **exactly one job**,
-scoped to `--font-display` only — the hero title/wordmark and long-form
-section/chapter dividers *within editorial content*. Never a heading,
-never a label, never body text, never a UI section header (this page's
-own `<h3>` section dividers stay `font-mono` — Jost is for dividers
-*inside* long-form prose, not the showcase's own navigation).
+A fourth typeface, driven through a single dependent role variable,
+`--font-display`, not a third flavor. **Every heading** (`h1`–`h6`) —
+plus the hero title/wordmark and long-form section/chapter dividers,
+which are styled as headings — renders through `--font-display`. It
+defaults to `var(--mono)` (no visible change from the active flavor)
+until the `.jost` class is applied, at which point Jost takes over
+every heading site-wide, giving it real protagonism rather than a
+single narrow appearance. Labels, nav, tags, table headers, and data
+values stay on `--font-mono` directly — those are functional UI text,
+not headings, and keep the monospace-label identity this system shares
+with Tri-Swiss.
 
-`--font-display` defaults to `var(--mono)` — no separate face — until the
-`.jost` class is applied. Unlike `.geist`, `.jost` is **not** a flavor:
-it composes independently with either flavor and with `.dark`, exactly
-like `.dark` composes with `.geist`. There's no natural monospace cousin
-of Jost the way Space Grotesk/Mono or Geist Sans/Mono share DNA, so it
-never touches `--mono` or `--sans` — swapping either would put a
-proportional face into labels/nav/data, breaking the monospace-label
-identity this system shares with Tri-Swiss.
+Unlike `.geist`, `.jost` is **not** a flavor: it composes independently
+with either flavor and with `.dark`, exactly like `.dark` composes with
+`.geist`. There's no natural monospace cousin of Jost the way Space
+Grotesk/Mono or Geist Sans/Mono share DNA, so it never touches `--mono`
+or `--sans` directly — only headings move, through `--font-display`.
 
 ```css
 :root { --display: var(--mono); }
@@ -244,13 +250,19 @@ identity this system shares with Tri-Swiss.
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@700&display=swap" rel="stylesheet" />
 ```
 
-Jost loads at a single weight (700) — it's used at one size, in one job,
-never needing a weight axis of its own.
+Jost loads at a single weight (700) — every heading is already weight
+700 per the heading scale above, so it never needs a weight axis of its
+own.
 
 ```jsx
-<h1 className="font-display" style={{ fontSize: "4.5rem", fontWeight: 700 }}>
+<h1 className="font-display">Page Title.</h1>
+<h2 className="font-display">Section Title.</h2>
+
+{/* Hero title/wordmark and editorial chapter dividers are styled as
+    headings, not marked up as <h1>-<h6> — they use font-display directly: */}
+<div className="font-display" style={{ fontSize: "4.5rem", fontWeight: 700 }}>
   Lux Swiss.
-</h1>
+</div>
 
 <div className="font-display" style={{ fontSize: "1.5rem", fontWeight: 700 }}>
   02 — Chapter Title

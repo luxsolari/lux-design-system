@@ -40,12 +40,12 @@
   --sans: "Geist", ui-sans-serif, system-ui, sans-serif;
 }
 
-/* Jost hero-display accent — add class="jost" on <html>; composes with
+/* Jost heading accent — add class="jost" on <html>; composes with
    .geist and .dark independently (it's not a third flavor, it's an
    orthogonal on/off switch). Overrides --display only — never --mono or
-   --sans — so it's scoped to exactly the hero title/wordmark and
-   long-form section/chapter dividers (see SKILL.md's "Hero-display
-   accent"), never headings, labels, or body. */
+   --sans — so every heading (h1–h6) gets Jost's protagonism while
+   labels, nav, tags, and data values stay on the active mono flavor
+   (see SKILL.md's "Heading accent"). */
 .jost {
   --display: "Jost", ui-sans-serif, system-ui, sans-serif;
 }

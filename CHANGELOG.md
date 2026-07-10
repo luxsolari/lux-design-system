@@ -9,20 +9,21 @@ All notable changes to this plugin are documented here. Format follows
 ## [2.3.0] — 2026-07-10
 
 ### Added
-- **Jost hero-display accent** — a governed, optional fourth typeface
-  scoped to exactly one job: the hero title/wordmark and long-form
-  editorial chapter dividers, via a new `--font-display` role (defaults
+- **Jost heading accent** — a governed, optional fourth typeface that
+  gives **every heading** (`h1`–`h6`), plus the hero title/wordmark and
+  long-form editorial chapter dividers (styled as headings), real
+  protagonism when toggled — via a new `--font-display` role (defaults
   to `--font-mono`, no separate face, until the `.jost` class is
-  applied). Unlike `.geist`, `.jost` is not a flavor — it never touches
-  `--font-mono`/`--font-sans`, so it composes independently with either
-  flavor and with `.dark`, exactly like `.dark` composes with `.geist`.
-  The showcase page gets a third, independent sidebar toggle ("Hero
-  display": Mono · Jost), and `scripts/capture/capture.mjs` can
-  screenshot any flavor/accent combination.
-- **Live chapter-divider demo** — the `#registers` section now includes
-  a "02 — Chapter Title" example using `font-display`, so toggling Jost
-  visibly demonstrates both of its named jobs (hero title and long-form
-  editorial chapter dividers), not just the hero (`docs/index.html`).
+  applied). Labels, nav, tags, and data values stay on `--font-mono`
+  directly — functional UI text, not headings. Unlike `.geist`, `.jost`
+  is not a flavor — it never touches `--font-mono`/`--font-sans`
+  directly, so it composes independently with either flavor and with
+  `.dark`, exactly like `.dark` composes with `.geist`. The showcase
+  page gets a third, independent sidebar toggle ("Hero display": Mono ·
+  Jost) that reskins every heading on the page, including a live
+  "02 — Chapter Title" example demonstrating the editorial-divider job,
+  and `scripts/capture/capture.mjs` can screenshot any flavor/accent
+  combination.
 
 ## [2.2.0] — 2026-07-10
 

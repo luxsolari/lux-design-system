@@ -229,20 +229,25 @@ Lucide is the only sanctioned icon set. Drop in the raw Lucide inline SVG and ad
 Sizing 16–20px. Never let an icon replace the mono text label — it augments it.
 For React use `lucide-react` and pass the same stroke props (or the `.icon` class).
 
-## Hero / display type (mono, Jost optional)
+## Headings & display type (mono, Jost optional)
 
-The hero title/wordmark and section/chapter dividers inside long-form
-editorial content use `font-display` — which defaults to the mono face
-(same as every other heading, just scaled up) and swaps to Jost, a
-governed optional accent, when the `.jost` class is applied (see
-`SKILL.md`'s "Hero-display accent"). Always use `font-display` for these
-two jobs specifically, never `font-mono` directly — that's what lets the
-Jost accent apply without touching headings, labels, or anything else.
+Every heading (`h1`–`h6`), plus the hero title/wordmark and
+section/chapter dividers inside long-form editorial content, uses
+`font-display` — which defaults to the mono face (unchanged from either
+flavor) and swaps to Jost, a governed optional accent, when the `.jost`
+class is applied (see `SKILL.md`'s "Heading accent"). Labels, nav, tags,
+and data values stay on `font-mono` directly — they're functional UI
+text, not headings, so Jost never touches them.
 
 ```jsx
-<h1 className="font-display" style={{ fontSize: "3.5rem", fontWeight: 700, letterSpacing: "-0.01em" }}>
+<h1 className="font-display">Page Title.</h1>
+<h2 className="font-display">Section Title.</h2>
+
+{/* Hero title/wordmark and editorial chapter dividers are styled as
+    headings but not marked up as <h1>-<h6> — use font-display directly: */}
+<div className="font-display" style={{ fontSize: "3.5rem", fontWeight: 700, letterSpacing: "-0.01em" }}>
   Page Title.
-</h1>
+</div>
 
 <div className="font-display" style={{ fontSize: "1.5rem", fontWeight: 700 }}>
   02 — Chapter Title
