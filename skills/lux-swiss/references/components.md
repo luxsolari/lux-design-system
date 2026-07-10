@@ -229,6 +229,26 @@ Lucide is the only sanctioned icon set. Drop in the raw Lucide inline SVG and ad
 Sizing 16–20px. Never let an icon replace the mono text label — it augments it.
 For React use `lucide-react` and pass the same stroke props (or the `.icon` class).
 
+## Hero / display type (mono, Jost optional)
+
+The hero title/wordmark and section/chapter dividers inside long-form
+editorial content use `font-display` — which defaults to the mono face
+(same as every other heading, just scaled up) and swaps to Jost, a
+governed optional accent, when the `.jost` class is applied (see
+`SKILL.md`'s "Hero-display accent"). Always use `font-display` for these
+two jobs specifically, never `font-mono` directly — that's what lets the
+Jost accent apply without touching headings, labels, or anything else.
+
+```jsx
+<h1 className="font-display" style={{ fontSize: "3.5rem", fontWeight: 700, letterSpacing: "-0.01em" }}>
+  Page Title.
+</h1>
+
+<div className="font-display" style={{ fontSize: "1.5rem", fontWeight: 700 }}>
+  02 — Chapter Title
+</div>
+```
+
 ## Cards
 
 Elevation is a background step, never a shadow.

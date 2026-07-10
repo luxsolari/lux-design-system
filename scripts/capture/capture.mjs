@@ -18,7 +18,8 @@ async function shoot({ dsr, viewport }, jobs) {
   for (const j of jobs) {
     await page.evaluate((d) => document.documentElement.classList.toggle("dark", d), !!j.dark);
     await page.evaluate((g) => document.documentElement.classList.toggle("geist", g), !!j.geist);
-    await page.evaluate(() => document.fonts.ready); // re-settle metrics after a flavor swap
+    await page.evaluate((j2) => document.documentElement.classList.toggle("jost", j2), !!j.jost);
+    await page.evaluate(() => document.fonts.ready); // re-settle metrics after a flavor/accent swap
     await page.waitForTimeout(200);
     if (j.fullViewport) {
       // Sidebar + content together, not scoped to one section — the sidebar is a

@@ -6,6 +6,18 @@ All notable changes to this plugin are documented here. Format follows
 
 ## [Unreleased]
 
+### Added
+- **Jost hero-display accent** — a governed, optional fourth typeface
+  scoped to exactly one job: the hero title/wordmark and long-form
+  editorial chapter dividers, via a new `--font-display` role (defaults
+  to `--font-mono`, no separate face, until the `.jost` class is
+  applied). Unlike `.geist`, `.jost` is not a flavor — it never touches
+  `--font-mono`/`--font-sans`, so it composes independently with either
+  flavor and with `.dark`, exactly like `.dark` composes with `.geist`.
+  The showcase page gets a third, independent sidebar toggle ("Hero
+  display": Mono · Jost), and `scripts/capture/capture.mjs` can
+  screenshot any flavor/accent combination.
+
 ## [2.2.0] — 2026-07-10
 
 ### Added

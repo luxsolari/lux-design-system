@@ -44,12 +44,16 @@ Three setup moves come first on any new project:
    `<html>` (it composes with `.dark`, exactly like the theme).
 2. **Install the theme.** Copy [`assets/theme.css`](assets/theme.css) into the
    project's global stylesheet (e.g. `app/globals.css`). It defines every CSS
-   variable for light + dark mode and both font flavors, and wires them to
-   Tailwind 4 via `@theme inline`. For non-Tailwind stacks the same
-   `:root` / `.dark` / `.geist` variables work as plain CSS custom properties.
+   variable for light + dark mode, both font flavors, and the optional Jost
+   hero-display accent, and wires them to Tailwind 4 via `@theme inline`.
+   For non-Tailwind stacks the same `:root` / `.dark` / `.geist` / `.jost`
+   variables work as plain CSS custom properties.
 3. **Load the fonts.** Add the Google Fonts link for the chosen flavor
    (below) or the framework equivalent (`next/font`, etc.) — just that
    flavor's families, not both, unless the project needs a live toggle.
+   Add Jost's link separately only if you're using the [hero-display
+   accent](#hero-display-accent--jost-governed-optional) — it's opt-in,
+   not part of the base setup.
 
 Then compose UI from the patterns in this file. For the full component library
 (status pips, modals, toggles, SVG charts) see
@@ -211,6 +215,47 @@ figure captions** (e.g. a `<figcaption>` or a marginal note) — Space Mono
 italic in the Space flavor, Geist Mono italic in the Geist flavor. It is
 never used for emphasis — emphasis is always weight. Treat it as a
 distinct voice for asides, not a highlighter.
+
+### Hero-display accent — Jost (governed, optional)
+
+A fourth typeface, but not a fourth role and not a third flavor. Governed
+as strictly as the highlight color's exceptions: **exactly one job**,
+scoped to `--font-display` only — the hero title/wordmark and long-form
+section/chapter dividers *within editorial content*. Never a heading,
+never a label, never body text, never a UI section header (this page's
+own `<h3>` section dividers stay `font-mono` — Jost is for dividers
+*inside* long-form prose, not the showcase's own navigation).
+
+`--font-display` defaults to `var(--mono)` — no separate face — until the
+`.jost` class is applied. Unlike `.geist`, `.jost` is **not** a flavor:
+it composes independently with either flavor and with `.dark`, exactly
+like `.dark` composes with `.geist`. There's no natural monospace cousin
+of Jost the way Space Grotesk/Mono or Geist Sans/Mono share DNA, so it
+never touches `--mono` or `--sans` — swapping either would put a
+proportional face into labels/nav/data, breaking the monospace-label
+identity this system shares with Tri-Swiss.
+
+```css
+:root { --display: var(--mono); }
+.jost { --display: "Jost", ui-sans-serif, system-ui, sans-serif; }
+```
+
+```html
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@700&display=swap" rel="stylesheet" />
+```
+
+Jost loads at a single weight (700) — it's used at one size, in one job,
+never needing a weight axis of its own.
+
+```jsx
+<h1 className="font-display" style={{ fontSize: "4.5rem", fontWeight: 700 }}>
+  Lux Swiss.
+</h1>
+
+<div className="font-display" style={{ fontSize: "1.5rem", fontWeight: 700 }}>
+  02 — Chapter Title
+</div>
+```
 
 ## Spacing & layout
 

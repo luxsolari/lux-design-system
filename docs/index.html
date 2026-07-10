@@ -14,6 +14,7 @@
           : window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
         if (dark) document.documentElement.classList.add("dark");
         if (localStorage.getItem("flavor") === "geist") document.documentElement.classList.add("geist");
+        if (localStorage.getItem("jost") === "on") document.documentElement.classList.add("jost");
       } catch (e) {}
     })();
   </script>
@@ -35,7 +36,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Geist:wght@300;400;500;700&family=Geist+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Zilla+Slab:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Geist:wght@300;400;500;700&family=Geist+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Zilla+Slab:ital,wght@0,400;0,500;0,700;1,400&family=Jost:wght@700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -43,13 +44,20 @@
       --primary:#8b2e2e; --primary-foreground:#f5efe0; --secondary:#0a0a0a; --secondary-foreground:#f5efe0;
       --muted:#ebe5d5; --muted-foreground:#4a4a48; --border:#0a0a0a; --input:#faf6ec; --ring:#8b2e2e;
       /* Role fonts — Space flavor (default). --font-serif is shared by
-         both flavors and is never overridden by .geist. */
+         both flavors and is never overridden by .geist. --font-display
+         defaults to --font-mono until the .jost accent is applied. */
       --font-mono:'Space Mono',ui-monospace,monospace; --font-sans:'Space Grotesk',system-ui,sans-serif;
-      --font-serif:'Zilla Slab',Georgia,serif;
+      --font-serif:'Zilla Slab',Georgia,serif; --font-display:var(--font-mono);
     }
-    /* Geist flavor — add class="geist" on <html>; composes with .dark. */
+    /* Geist flavor — add class="geist" on <html>; composes with .dark and .jost. */
     .geist {
       --font-mono:'Geist Mono',ui-monospace,monospace; --font-sans:'Geist',system-ui,sans-serif;
+    }
+    /* Jost hero-display accent — not a flavor, an independent on/off switch.
+       Overrides --font-display only (hero title + editorial chapter dividers);
+       never --font-mono/--font-sans, so labels/nav/data stay untouched. */
+    .jost {
+      --font-display:'Jost',system-ui,sans-serif;
     }
     .dark {
       --background:#0a0a0a; --foreground:#f5efe0; --card:#161616; --card-foreground:#f5efe0;
@@ -181,6 +189,11 @@
           <span class="mid">·</span>
           <button data-flavor-btn="geist" aria-pressed="false">Geist</button>
         </div>
+        <div class="toggle" role="group" aria-label="Hero display">
+          <button data-jost-btn="mono" aria-pressed="true">Mono</button>
+          <span class="mid">·</span>
+          <button data-jost-btn="jost" aria-pressed="false">Jost</button>
+        </div>
         <div class="toggle" role="group" aria-label="Color theme">
           <button data-theme-btn="light" aria-pressed="true">Light</button>
           <span class="mid">·</span>
@@ -201,7 +214,7 @@
       <!-- sections appended in Tasks 3–7 -->
       <section id="hero" style="border-top:none;">
         <p class="label">Claude Code plugin</p>
-        <h1 style="margin:20px 0 0; font-size:4.5rem;">Lux Swiss.</h1>
+        <h1 style="margin:20px 0 0; font-size:4.5rem; font-family:var(--font-display);">Lux Swiss.</h1>
         <div style="display:flex; gap:4px; width:64px; margin-top:16px;" aria-hidden="true">
           <div style="height:3px; flex:1; background:var(--foreground);"></div>
           <div style="height:3px; flex:1; background:var(--primary);"></div>
@@ -647,7 +660,7 @@
            border:1px solid var(--border);">
         <p class="label">Claude Code plugin</p>
         <div>
-          <h1 style="font-size:4.5rem; line-height:1.05; margin:0;">Lux Swiss.</h1>
+          <h1 style="font-size:4.5rem; line-height:1.05; margin:0; font-family:var(--font-display);">Lux Swiss.</h1>
           <p style="font-family:var(--font-mono); font-size:1.25rem; margin:20px 0 0;
              color:var(--muted-foreground);">Two colors. One accent. No shadows.</p>
         </div>
@@ -759,6 +772,28 @@
         var geist = btn.dataset.flavorBtn === "geist";
         localStorage.setItem("flavor", geist ? "geist" : "space");
         apply(geist);
+      });
+    })();
+  </script>
+  <script>
+    // Jost hero-display toggle: independent of the flavor toggle above -- swaps
+    // only --font-display (hero title + editorial chapter dividers), composing
+    // with .geist and .dark rather than competing with them. Persisted under "jost".
+    (function () {
+      var root = document.documentElement;
+      apply(localStorage.getItem("jost") === "on");
+      function apply(jost) {
+        root.classList.toggle("jost", jost);
+        document.querySelectorAll("[data-jost-btn]").forEach(function (b) {
+          b.setAttribute("aria-pressed", String(b.dataset.jostBtn === (jost ? "jost" : "mono")));
+        });
+      }
+      document.addEventListener("click", function (e) {
+        var btn = e.target.closest("[data-jost-btn]");
+        if (!btn) return;
+        var jost = btn.dataset.jostBtn === "jost";
+        localStorage.setItem("jost", jost ? "on" : "off");
+        apply(jost);
       });
     })();
   </script>
