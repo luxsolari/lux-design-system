@@ -6,6 +6,8 @@ All notable changes to this plugin are documented here. Format follows
 
 ## [Unreleased]
 
+## [2.2.0] — 2026-07-10
+
 ### Added
 - **Geist font flavor** — a `.geist` class (composes with `.dark`, exactly
   like the theme) that swaps `--font-mono`/`--font-sans` from Space
