@@ -6,6 +6,8 @@ All notable changes to this plugin are documented here. Format follows
 
 ## [Unreleased]
 
+## [2.3.0] — 2026-07-10
+
 ### Added
 - **Jost hero-display accent** — a governed, optional fourth typeface
   scoped to exactly one job: the hero title/wordmark and long-form
